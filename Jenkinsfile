@@ -56,6 +56,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "------------>Build<------------"
+        sh 'gradle --b ./build.gradle build -x test'
       }
     }  
   }
@@ -68,6 +69,7 @@ post {
     }
     failure {
       echo 'This will run only if failed'
+      mail (to: 'deiby.manzo@ceiba.com.co',subject: "Pipeline falló :${currentBuild.fullDisplayName}",body: "Algo falló ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
