@@ -18,10 +18,19 @@ public class Product implements Serializable {
 	private Long id;
 	@Column(name = "codigo",  length = 20,nullable = false)
 	private String codigo;
-	@Column(name = "name", nullable = false)
-	private String name;
+	@Column(name = "nombre", nullable = false)
+	private String nombre;
 	@Column(name = "qty", nullable = false)
 	private Long qty;
+	
+	
+
+	public Product(String codigo, String name, Long qty) {
+		super();
+		this.codigo = codigo;
+		this.nombre = name;
+		this.qty = qty;
+	}
 
 	public Long getId() {
 		return id;
@@ -39,12 +48,12 @@ public class Product implements Serializable {
 		this.codigo = codigo;
 	}
 
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String name) {
+		this.nombre = name;
 	}
 
 	public Long getQty() {

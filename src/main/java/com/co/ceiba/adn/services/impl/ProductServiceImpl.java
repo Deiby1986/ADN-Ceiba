@@ -16,18 +16,16 @@ public class ProductServiceImpl implements ProductService{
 	private ProductDao productDao;
 	
 	public List<Product> findAll(){
-		//return productDao.findAll();
-		return null;
+		return productDao.findAll();
+		
 	}
 	
 	public Product save(Product p) {
-		//return productDao.save(p);
-		return null;
+		return productDao.save(p);		
 	}
 	
 	public Product findById(Long id) {
-		//return productDao.findById(id).orElse(null);
-		return null;
+		return productDao.findById(id).orElse(null);
 	}
 	
 }
