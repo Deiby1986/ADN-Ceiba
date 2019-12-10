@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.co.ceiba.adn.entities.Product;
+import com.co.ceiba.adn.domain.entities.Product;
 import com.co.ceiba.adn.services.impl.ProductServiceImpl;
 
 class testProduct {

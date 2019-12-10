@@ -1,4 +1,4 @@
-package com.co.ceiba.adn.entities;
+package com.co.ceiba.adn.domain.entities;
 
 import java.io.Serializable;
 
@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Products")
+@NamedNativeQuery(name = "Product.findByCode", query = "SELECT * FROM products WHERE codigo = ?", resultClass = Product.class)
 public class Product implements Serializable {
 	@Id
 	@Column(name = "id")
@@ -23,7 +25,9 @@ public class Product implements Serializable {
 	@Column(name = "qty", nullable = false)
 	private Long qty;
 	
-	
+	public Product() {
+		
+	}
 
 	public Product(String codigo, String name, Long qty) {
 		super();
