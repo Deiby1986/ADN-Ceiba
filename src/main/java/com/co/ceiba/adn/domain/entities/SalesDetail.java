@@ -10,6 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "SalesDetail")
 public class SalesDetail {
@@ -38,45 +43,7 @@ public class SalesDetail {
 		this.total = total;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public SalesHeader getHeader() {
-		return header;
-	}
-
-	public void setHeader(SalesHeader header) {
-		this.header = header;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	public Long getQtyPurchased() {
-		return qtyPurchased;
-	}
-
-	public void setQtyPurchased(Long qtyPurchased) {
-		this.qtyPurchased = qtyPurchased;
-	}
-
-	public Long getTotal() {
-		return total;
-	}
-
-	public void setTotal(Long total) {
-		this.total = total;
-	}
+	
 	
 	
 

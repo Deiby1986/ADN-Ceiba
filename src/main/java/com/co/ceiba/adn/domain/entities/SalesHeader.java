@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "SalesHeader")
 public class SalesHeader {
@@ -28,52 +33,5 @@ public class SalesHeader {
 		this.fecha = fecha;
 		this.total = total;
 	}
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public String getNombreCliente() {
-		return nombreCliente;
-	}
-
-
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
-	}
-
-
-	public String getFecha() {
-		return fecha;
-	}
-
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
-
-	public Double getTotal() {
-		return total;
-	}
-
-
-	public void setTotal(Double total) {
-		this.total = total;
-	}
-	
-	
-	
-	
-	
-	
-	
 
 }

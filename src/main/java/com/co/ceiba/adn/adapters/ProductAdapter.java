@@ -23,6 +23,7 @@ public class ProductAdapter {
 		//Product product = modelMapper.map(pr, Product.class);
 		Product product = productFactory.crearProducto(pr);
 		
+		
 		if(productService.findByCode(pr.getCodigo()))
 			return false;
 		productService.save(product);

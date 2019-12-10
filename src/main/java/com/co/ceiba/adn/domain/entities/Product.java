@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "Products")
 @NamedNativeQuery(name = "Product.findByCode", query = "SELECT * FROM products WHERE codigo = ?", resultClass = Product.class)
@@ -26,7 +31,7 @@ public class Product implements Serializable {
 	private Long qty;
 	
 	public Product() {
-		
+	
 	}
 
 	public Product(String codigo, String name, Long qty) {
@@ -36,36 +41,8 @@ public class Product implements Serializable {
 		this.qty = qty;
 	}
 
-	public Long getId() {
-		return id;
-	}
+	
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String name) {
-		this.nombre = name;
-	}
-
-	public Long getQty() {
-		return qty;
-	}
-
-	public void setQty(Long qty) {
-		this.qty = qty;
-	}
+	
 
 }
