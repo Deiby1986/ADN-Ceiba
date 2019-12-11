@@ -1,4 +1,4 @@
-package com.co.ceiba.adn.domain.entities;
+package com.co.ceiba.adn.domain.model.entities;
 
 import java.io.Serializable;
 

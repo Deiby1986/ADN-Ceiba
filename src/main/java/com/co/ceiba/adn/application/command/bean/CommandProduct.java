@@ -13,16 +13,14 @@ public class CommandProduct {
 	}
 	
 	public CommandProduct(Long id, String codigo, String nombre, Long qty) {
-		super();
+
 		this.id = id;
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.qty = qty;
 	}
 	
-	public CommandProduct(String codigo, String nombre, Long qty) {
-		super();
-		this.id = id;
+	public CommandProduct(String codigo, String nombre, Long qty) {		
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.qty = qty;

@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.co.ceiba.adn.domain.entities.SalesHeader;
+import com.co.ceiba.adn.domain.model.entities.SalesHeader;
+import com.co.ceiba.adn.domain.repository.SalesHeaderService;
 import com.co.ceiba.adn.infraestructura.dao.SalesHeaderDao;
-import com.co.ceiba.adn.services.SalesHeaderService;
 
+//TODO: Migrar a com.co.ceiba.adn.domain.services
 public class SalesHeaderServiceImpl implements SalesHeaderService {
 	
 	@Autowired

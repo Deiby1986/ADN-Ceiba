@@ -1,8 +1,8 @@
-package com.co.ceiba.adn.services;
+package com.co.ceiba.adn.domain.repository;
 
 import java.util.List;
 
-import com.co.ceiba.adn.domain.entities.SalesDetail;
+import com.co.ceiba.adn.domain.model.entities.SalesDetail;
 
 public interface SalesDetailService {
 	public List<SalesDetail> findAll();

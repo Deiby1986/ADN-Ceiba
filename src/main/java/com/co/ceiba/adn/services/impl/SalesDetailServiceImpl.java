@@ -4,18 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.co.ceiba.adn.domain.entities.SalesDetail;
+import com.co.ceiba.adn.domain.model.entities.SalesDetail;
+import com.co.ceiba.adn.domain.repository.SalesDetailService;
 import com.co.ceiba.adn.infraestructura.dao.SalesDetailDao;
-import com.co.ceiba.adn.services.SalesDetailService;
 
+//TODO: Migrar a com.co.ceiba.adn.domain.services
 public class SalesDetailServiceImpl implements SalesDetailService {
 	
 	@Autowired
 	SalesDetailDao sales;
 
 	@Override
-	public List<SalesDetail> findAll() {
-		
+	public List<SalesDetail> findAll() {		
 		return sales.findAll();
 	}
 
