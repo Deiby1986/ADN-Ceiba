@@ -70,7 +70,7 @@ post {
     }
     failure {
       echo 'This will run only if failed'
-      mail (to: 'deiby.manzo@ceiba.com.co',subject: "Pipeline falló :${currentBuild.fullDisplayName}",body: "Algo falló ${env.BUILD_URL}")
+     // mail (to: 'deiby.manzo@ceiba.com.co',subject: "Pipeline falló :${currentBuild.fullDisplayName}",body: "Algo falló ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
