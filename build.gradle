@@ -68,8 +68,6 @@ application {
 }
 
 
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+test {
+    useJUnitPlatform()
 }
