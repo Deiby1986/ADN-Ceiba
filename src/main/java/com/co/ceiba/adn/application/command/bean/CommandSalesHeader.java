@@ -2,6 +2,8 @@ package com.co.ceiba.adn.application.command.bean;
 
 import java.util.List;
 
+import lombok.Getter;
+@Getter
 public class CommandSalesHeader {
 	
 	private Long id;

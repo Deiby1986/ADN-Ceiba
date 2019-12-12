@@ -20,7 +20,7 @@ public class ProductHandlerCreate {
 	}
 
 	public void save(CommandProduct p) {	
-		Product pr =productFactory.crearProducto(p);
+		Product pr =productFactory.createProducto(p);
 		productService.execute(pr);		
 	}
 	

@@ -1,5 +1,6 @@
 package com.co.ceiba.adn.domain;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
@@ -19,8 +20,18 @@ public class ProductServiceTest {
 		ProductRepositoryDB productRepository = Mockito.mock(ProductRepositoryDB.class);
 		Mockito.when(productRepository.findByCode(Mockito.any())).thenReturn(product);		
 		ProductService service = new ProductService(productRepository);
-		assertThrows(CodeExistsException.class,()-> service.execute(product));
-		
+		assertThrows(CodeExistsException.class,()-> service.execute(product));		
+	}	
+	
+	@Test
+	public void testProductSaving() {		
+		Product product = new ProductTestDataBuilder().build();
+		ProductRepositoryDB productRepository = Mockito.mock(ProductRepositoryDB.class);
+		Mockito.when(productRepository.findByCode(Mockito.any())).thenReturn(null);	
+		Mockito.when(productRepository.save(product)).thenReturn(product);
+		ProductService service = new ProductService(productRepository);
+		Product  productSaved = service.execute(product);
+		assertTrue(product.getCodigo().equals(productSaved.getCodigo()));		
 	}
 
 }

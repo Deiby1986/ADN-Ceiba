@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.co.ceiba.adn.domain.exceptions.FieldEmptyOrNullException;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,11 +39,22 @@ public class SalesDetail {
 
 	public SalesDetail(SalesHeader header, Product product, Long qtyPurchased, Long total) {
 		super();
+		if(header == null)
+			throw new FieldEmptyOrNullException("Se debe especificar el header");
+		if(product == null)
+			throw new FieldEmptyOrNullException("Se debe especificar el producto");
+		if(qtyPurchased == null || qtyPurchased <= 0L)
+			throw new FieldEmptyOrNullException("Se debe especificar una cantidad valida");
+		if(total <= 0L)
+			throw new FieldEmptyOrNullException("Se debe ingresar una cantidad valida");
+		
 		this.header = header;
 		this.product = product;
 		this.qtyPurchased = qtyPurchased;
 		this.total = total;
 	}
+	
+	
 
 	
 	

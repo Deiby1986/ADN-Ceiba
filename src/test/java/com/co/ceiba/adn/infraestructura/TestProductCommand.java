@@ -19,9 +19,9 @@ import com.co.ceiba.adn.infraestructura.builder.CommandProductDataBuilder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//@RunWith(SpringRunner.class)
-//@WebMvcTest(ProductCommand.class)
-//@ComponentScan("com.co.ceiba")
+@RunWith(SpringRunner.class)
+@WebMvcTest(ProductCommand.class)
+@ComponentScan("com")
 public class TestProductCommand {
 	
 	@Autowired
