@@ -13,19 +13,9 @@ import com.co.ceiba.adn.infraestructura.repository.ProductRepositoryDB;
 @Configuration
 public class BeanServicio {
 	
-	@Autowired
-	private ProductDao daopDao;
-	
-	public BeanServicio(ProductDao daopDao) {
-		this.daopDao = daopDao;
-	}
-	
 	@Bean
-	public ProductService createProductService() {		
+	public ProductService createProductService(ProductDao daopDao) {		
 		return new ProductService(new ProductRepositoryDB(daopDao));
-	}
-	
-	
-	 
+	} 
 
 }

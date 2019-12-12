@@ -13,6 +13,7 @@ import com.co.ceiba.adn.infraestructura.dao.ProductDao;
 @Component
 public class ProductRepositoryDB implements ProductRepository {	
 	
+	
 	ProductDao rep;	
 
 	public ProductRepositoryDB(ProductDao rep) {
@@ -21,24 +22,8 @@ public class ProductRepositoryDB implements ProductRepository {
 	}
 
 	@Override
-	public Product save(Product p) {
-		return rep.save(p);
-	}
-
-	@Override
 	public List<Product> findAll() {
 		return rep.findAll();
-	}
-	
-
-	@Override
-	public Product findById(Long id) {
-		return rep.findById(id).orElse(null);
-	}
-
-	@Override
-	public Product findByCode(String code) {		
-		return rep.findByCode(code);
 	}
 
 	@Override
@@ -46,5 +31,24 @@ public class ProductRepositoryDB implements ProductRepository {
 		return rep.findAll().stream().map(product -> new ProductDto(product.getId(),product.getCodigo(),product.getNombre(),product.getQty()))
 				 .collect(Collectors.toList());
 	}
+	
+
+	@Override
+	public Product findByCode(String code) {		
+		return rep.findByCode(code);
+	}
+
+	@Override
+	public Product findById(Long id) {
+		return rep.findById(id).orElse(null);
+	}	
+	
+
+	@Override
+	public Product save(Product p) {
+		return rep.save(p);
+	}
+
+	
 
 }

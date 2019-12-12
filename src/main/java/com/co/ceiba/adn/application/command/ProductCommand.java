@@ -22,21 +22,11 @@ public class ProductCommand {
 	public ProductCommand(ProductHandlerCreate service) {	
 		this.service = service;
 	}
-
-	/*@GetMapping("/products")
-	public List<Product> getProducts(){
-			return service.findAll();
-	}*/
 	
 	@PostMapping
 	@ApiOperation("/addProduct")
 	public void addProduct(@RequestBody CommandProduct pr){				
 		service.save(pr);
 	}
-	
-	/*@GetMapping("/getProduct")
-	public Product getProduct(Long id){
-		return service.findById(id);
-	}*/
 
 }

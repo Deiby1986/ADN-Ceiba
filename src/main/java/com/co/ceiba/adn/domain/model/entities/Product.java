@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
+import com.co.ceiba.adn.domain.exceptions.FieldEmptyOrNullException;
+import com.co.ceiba.adn.domain.exceptions.FieldLengthException;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,6 +39,14 @@ public class Product implements Serializable {
 
 	public Product(String codigo, String name, Long qty) {
 		super();
+		if(codigo == null || codigo.trim().length() == 0)
+			throw new FieldEmptyOrNullException("Codigo del producto no puede ser vacio");
+		if(name == null || name.trim().length() == 0)
+			throw new FieldEmptyOrNullException("Nombre del producto no puede ser vacio");	
+		if(codigo.length()<5)
+			throw new FieldLengthException("Longitud del codigo no puede ser menor que 5");
+		if(name.length()<5)
+			throw new FieldLengthException("Longitud del nombre no puede ser menor que 5");
 		this.codigo = codigo;
 		this.nombre = name;
 		this.qty = qty;
