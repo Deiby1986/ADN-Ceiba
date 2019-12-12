@@ -1,5 +1,4 @@
-pipeline {
-  //Donde se va a ejecutar el Pipeline
+pipeline { 
   agent {
     label 'Slave_Induccion'
   }
@@ -10,10 +9,10 @@ pipeline {
  	disableConcurrentBuilds()
   }
 
-  //Una secciï¿½n que define las herramientas ï¿½preinstaladasï¿½ en Jenkins
+ 
   tools {
-    jdk 'JDK8_Centos' //Preinstalada en la Configuraciï¿½n del Master
-    gradle 'Gradle5.6_Centos' //Preinstalada en la Configuraciï¿½n del Master
+    jdk 'JDK8_Centos' /
+    gradle 'Gradle5.6_Centos' 
   }
 
   //Aquï¿½ comienzan los ï¿½itemsï¿½ del Pipeline
@@ -39,8 +38,11 @@ pipeline {
     
     stage('Compile & Unit Tests') {
       steps{
-        echo "------------>Unit Tests<------------"
-        sh 'gradle --b ./build.gradle test'
+        echo "------------>Cleaning previous compilations<------------"
+         sh 'gradle --b ./build.gradle clean'
+
+           echo "------------>Unit Tests<------------"
+           sh 'gradle --b ./build.gradle test'
       }
     }
 
@@ -69,7 +71,7 @@ post {
     }
     failure {
       echo 'This will run only if failed'
-      mail (to: 'deiby.manzo@ceiba.com.co',subject: "Pipeline fallÃ³ :${currentBuild.fullDisplayName}",body: "Algo fallÃ³ ${env.BUILD_URL}")
+      mail (to: 'deiby.manzo@ceiba.com.co',subject: "Pipeline falló :${currentBuild.fullDisplayName}",body: "Algo falló ${env.BUILD_URL}")
     }
     unstable {
       echo 'This will run only if the run was marked as unstable'
