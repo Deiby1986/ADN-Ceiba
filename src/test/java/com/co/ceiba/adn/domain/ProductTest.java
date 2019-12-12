@@ -36,7 +36,8 @@ public class ProductTest {
 	
 	@Test
 	public void testProductNameLength() {		
-			ProductTestDataBuilder builder = new ProductTestDataBuilder();			
+			ProductTestDataBuilder builder = new ProductTestDataBuilder();	
+			
 			assertThrows(FieldLengthException.class,()->builder.withName("ABC").build());	
 	}
 	
