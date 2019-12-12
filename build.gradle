@@ -62,10 +62,6 @@ dependencies {
 		implementation('io.springfox:springfox-swagger2:2.9.2')
 }
 
-/*application {
-     Define the main class for the application.
-    mainClassName = 'com.co.adn.ceiba.App'
-}*/
 
 
 test {
