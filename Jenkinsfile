@@ -3,7 +3,6 @@ pipeline {
     label 'Slave_Induccion'
   }
 
-  //Opciones espec�ficas de Pipeline dentro del Pipeline
   options {
     	buildDiscarder(logRotator(numToKeepStr: '3'))
  	disableConcurrentBuilds()
@@ -11,11 +10,11 @@ pipeline {
 
  
   tools {
-    jdk 'JDK8_Centos' /
+    jdk 'JDK8_Centos' 
     gradle 'Gradle5.6_Centos' 
   }
 
-  //Aqu� comienzan los �items� del Pipeline
+
   stages{
     stage('Checkout') {
       steps{
