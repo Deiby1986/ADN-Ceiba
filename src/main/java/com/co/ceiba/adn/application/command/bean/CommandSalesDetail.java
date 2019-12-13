@@ -12,19 +12,19 @@ public class CommandSalesDetail {
 	private Long  idProduct;	
 	private Long qtyPurchased;	
 	private Long total;
-	public CommandSalesDetail(Long id, Long id_header, Long id_product, Long qtyPurchased, Long total) {
+	public CommandSalesDetail(Long id, Long idHeader, Long idProduct, Long qtyPurchased, Long total) {
 		super();
 		this.id = id;
-		this.idHeader = id_header;
-		this.idProduct = id_product;
+		this.idHeader = idHeader;
+		this.idProduct = idProduct;
 		this.qtyPurchased = qtyPurchased;
 		this.total = total;
 	}
 	
-	public CommandSalesDetail(Long id_header, Long id_product, Long qtyPurchased, Long total) {
+	public CommandSalesDetail(Long idHeader, Long idProduct, Long qtyPurchased, Long total) {
 		super();
-		this.idHeader = id_header;
-		this.idProduct = id_product;
+		this.idHeader = idHeader;
+		this.idProduct = idProduct;
 		this.qtyPurchased = qtyPurchased;
 		this.total = total;
 	}

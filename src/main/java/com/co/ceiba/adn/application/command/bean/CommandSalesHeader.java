@@ -1,5 +1,6 @@
 package com.co.ceiba.adn.application.command.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Getter;
@@ -20,7 +21,7 @@ public class CommandSalesHeader {
 		this.nombreCliente = nombreCliente;
 		this.fecha = fecha;
 		this.total = total;
-		this.detalles = detalles;
+		this.detalles = new ArrayList<>(detalles);
 	}
 	
 	
