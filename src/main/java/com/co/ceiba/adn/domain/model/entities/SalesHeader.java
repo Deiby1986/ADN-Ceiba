@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.co.ceiba.adn.domain.exceptions.FieldEmptyOrNullException;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,17 +22,22 @@ public class SalesHeader {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name = "nombre_cliente", nullable = false)
-	private String nombreCliente;
+	private String clientName;
 	@Column(name = "fecha", nullable = false)
-	private String fecha;
+	private String date;
 	@Column(name = "total", nullable = false)
 	private Double total;
 	
 	
-	public SalesHeader(String nombreCliente, String fecha, Double total) {
-		super();
-		this.nombreCliente = nombreCliente;
-		this.fecha = fecha;
+	public SalesHeader(String clientName, String date, Double total) {
+		if(clientName == null || clientName.trim().length() == 0)
+			throw new FieldEmptyOrNullException("Nombre del cliente no puede ser vacio");
+		if(date == null || date.trim().length() == 0)
+			throw new FieldEmptyOrNullException("Fecha de la venta no puede ser vacio");
+		if(total == null || total <= 0)
+			throw new FieldEmptyOrNullException("Total de la venta es invalido");
+		this.clientName = clientName;
+		this.date = date;
 		this.total = total;
 	}
 

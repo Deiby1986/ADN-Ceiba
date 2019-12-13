@@ -22,6 +22,10 @@ import lombok.Setter;
 @Table(name = "Products")
 @NamedNativeQuery(name = "Product.findByCode", query = "SELECT * FROM products WHERE codigo = ?", resultClass = Product.class)
 public class Product implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
