@@ -44,8 +44,20 @@ dependencies {
 		compile('org.modelmapper:modelmapper:1.1.0')
 		implementation('io.springfox:springfox-swagger-ui:2.9.2')
 		implementation('io.springfox:springfox-swagger2:2.9.2')
+		runtime("'org.projectlombok:lombok")
 }
 
 test {
     useJUnitPlatform()
+}
+
+jacocoTestReport{
+	additionalSourceDirs.from = files(sourceSets.main.allJava.srcDirs)
+	reports {
+		html.enabled true
+		xml.enabled false
+		csv.enabled false
+		html.destination file("build/reports/jacoco/html")
+	}
+	executionData.from = files('build/jacoco/test.exec')
 }
