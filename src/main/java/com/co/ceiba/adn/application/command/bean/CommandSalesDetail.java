@@ -12,6 +12,11 @@ public class CommandSalesDetail {
 	private Long  idProduct;	
 	private Long qtyPurchased;	
 	private Long total;
+	
+	public CommandSalesDetail() {
+		
+	}
+	
 	public CommandSalesDetail(Long id, Long idHeader, Long idProduct, Long qtyPurchased, Long total) {
 		super();
 		this.id = id;

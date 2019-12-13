@@ -1,18 +1,19 @@
-package com.co.ceiba.adn.services.impl;
+package com.co.ceiba.adn.infraestructura.repository;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.co.ceiba.adn.domain.model.entities.SalesHeader;
 import com.co.ceiba.adn.domain.repository.SalesHeaderRepository;
 import com.co.ceiba.adn.infraestructura.dao.SalesHeaderDao;
 
-//TODO: Migrar a com.co.ceiba.adn.domain.services
-public class SalesHeaderServiceImpl implements SalesHeaderRepository {
-	
-	@Autowired
-	SalesHeaderDao salesDao;
+public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
+
+	SalesHeaderDao salesDao;	
+
+	public SalesHeaderRepositoryDB(SalesHeaderDao salesDao) {
+		super();
+		this.salesDao = salesDao;
+	}
 
 	@Override
 	public List<SalesHeader> findAll() {		

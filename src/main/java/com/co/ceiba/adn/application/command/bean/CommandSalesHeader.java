@@ -13,6 +13,12 @@ public class CommandSalesHeader {
 	private Double total;
 	
 	private List<CommandSalesDetail> detalles;
+	
+	public CommandSalesHeader() {
+		
+	}
+	
+	
 
 	public CommandSalesHeader(Long id, String nombreCliente, String fecha, Double total,
 			List<CommandSalesDetail> detalles) {
@@ -21,7 +27,9 @@ public class CommandSalesHeader {
 		this.nombreCliente = nombreCliente;
 		this.fecha = fecha;
 		this.total = total;
-		this.detalles = new ArrayList<>(detalles);
+		this.detalles = new ArrayList<>();
+		if(detalles!=null)
+			this.detalles.addAll(detalles);
 	}
 	
 	
