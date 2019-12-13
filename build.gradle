@@ -43,8 +43,7 @@ dependencies {
 		runtime("com.h2database:h2:1.3.176")
 		compile('org.modelmapper:modelmapper:1.1.0')
 		implementation('io.springfox:springfox-swagger-ui:2.9.2')
-		implementation('io.springfox:springfox-swagger2:2.9.2')
-		runtime("'org.projectlombok:lombok")
+		implementation('io.springfox:springfox-swagger2:2.9.2')		
 }
 
 test {
