@@ -1,6 +1,7 @@
 package com.co.ceiba.adn.application.command.factory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.co.ceiba.adn.application.command.bean.CommandSalesDetail;
 import com.co.ceiba.adn.domain.model.entities.Product;
@@ -9,6 +10,7 @@ import com.co.ceiba.adn.domain.model.entities.SalesHeader;
 import com.co.ceiba.adn.infraestructura.dao.ProductDao;
 import com.co.ceiba.adn.infraestructura.dao.SalesHeaderDao;
 
+@Component
 public class SalesDetailFactory {
 	@Autowired
 	ProductDao daoProducto;
