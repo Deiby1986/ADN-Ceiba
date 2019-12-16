@@ -12,4 +12,8 @@ export class SalesComponent implements OnInit {
   ngOnInit() {
   }
 
+  addVenta(){
+    
+  }
+
 }
