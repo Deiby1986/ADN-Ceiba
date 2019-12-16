@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { ProductsServiceService } from '../services/products/products-service.service';
 import {Product} from '../models/product'
+import { TrmService } from '../services/trm/trm.service';
 
 
 
@@ -14,14 +16,17 @@ import {Product} from '../models/product'
 })
 export class ProductsComponent implements OnInit {
   products : Observable<Product[]>;
-  //products : Product[];
-  constructor(private prService:ProductsServiceService) { }
+  trm:Observable<string>;
+  constructor( private router: Router,private prService:ProductsServiceService,private trmService:TrmService) { }
 
   ngOnInit() {
     this.products = this.prService.getProducts();
-    this.products.forEach(product=>console.log(product));
-   
-    //this.products = this.prService.getProducts();
+   // this.trm = this.trmService.getTrm(); 
+   // this.trm.subscribe(trm=>console.log(trm));    
+  }
+
+  addProduct(){
+    this.router.navigate(['/product']);
   }
 
 }

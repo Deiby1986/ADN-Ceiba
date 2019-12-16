@@ -7,11 +7,25 @@ public class CommandProduct {
 	private String codigo;	
 	private String nombre;
 	private Long qty;
+	private double price;
 	
 	public CommandProduct() {
 		
 	}
 	
+	
+	
+	public CommandProduct(Long id, String codigo, String nombre, Long qty, double price) {
+		super();
+		this.id = id;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.qty = qty;
+		this.price = price;
+	}
+
+
+
 	public CommandProduct(Long id, String codigo, String nombre, Long qty) {
 
 		this.id = id;
@@ -50,6 +64,14 @@ public class CommandProduct {
 	}
 	public void setQty(Long qty) {
 		this.qty = qty;
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	
 	

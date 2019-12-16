@@ -43,7 +43,7 @@ public class Product implements Serializable {
 	
 	}
 
-	public Product(String codigo, String name, Long qty) {
+	public Product(String codigo, String name, Long qty,Double price) {
 		super();
 		if(codigo == null || codigo.trim().length() == 0)
 			throw new FieldEmptyOrNullException("Codigo del producto no puede ser vacio");
@@ -56,6 +56,7 @@ public class Product implements Serializable {
 		this.codigo = codigo;
 		this.nombre = name;
 		this.qty = qty;
+		this.price = price;
 	}
 
 	

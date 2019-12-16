@@ -31,6 +31,8 @@ public class SalesHeaderHandleCreate {
 	}
 	
 	private void saveDetails(List<CommandSalesDetail> details,SalesHeader header) {
+		if(details == null || details.isEmpty())
+			return;			
 		for (int i = 0; i < details.size(); i++) {
 			CommandSalesDetail det = details.get(i);
 			det.setIdHeader(header.getId());

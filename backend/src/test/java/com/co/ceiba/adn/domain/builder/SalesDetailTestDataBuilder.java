@@ -13,7 +13,7 @@ public class SalesDetailTestDataBuilder {
      
      public SalesDetailTestDataBuilder() {
 		id= 1L;
-		product = new Product("000001", "Prueba", 100L);
+		product = new Product("000001", "Prueba", 100L,200D);
 		header = new SalesHeader("Cliente prueba", "01/01/2019", 10D);
 		qtyPurchased = 1L;
 		total = 10L;
