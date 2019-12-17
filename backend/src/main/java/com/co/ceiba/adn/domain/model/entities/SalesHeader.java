@@ -28,7 +28,9 @@ public class SalesHeader {
 	@Column(name = "total", nullable = false)
 	private Double total;
 	
-	
+	public SalesHeader() {
+		
+	}
 	public SalesHeader(String clientName, String date, Double total) {
 		if(clientName == null || clientName.trim().length() == 0)
 			throw new FieldEmptyOrNullException("Nombre del cliente no puede ser vacio");

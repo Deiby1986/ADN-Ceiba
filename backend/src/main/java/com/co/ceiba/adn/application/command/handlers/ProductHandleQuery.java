@@ -9,10 +9,9 @@ import com.co.ceiba.adn.infraestructura.repository.ProductRepositoryDB;
 
 @Component
 public class ProductHandleQuery {
-	ProductRepositoryDB productoDao;
+	private ProductRepositoryDB productoDao;
 
-	public ProductHandleQuery(ProductRepositoryDB productoDao) {
-		super();
+	public ProductHandleQuery(ProductRepositoryDB productoDao) {		
 		this.productoDao = productoDao;
 	}
 	
