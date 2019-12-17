@@ -1,6 +1,7 @@
 package com.co.ceiba.adn.infraestructura.builder;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CommandSalesHeaderDataBuilder {
 	
 	public CommandSalesHeaderDataBuilder() {
 		this.nombreCliente = "Cliente prueba";
-		this.date = LocalDate.of(2019, 01, 01).toString();
+		this.date = LocalDate.of(2019, 01, 01).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		this.total = 100D;
 		CommandSalesDetail detail = new CommandSalesDetail(0L, 1L, 1L, 100L);
 		this.detalles = new ArrayList<>();
