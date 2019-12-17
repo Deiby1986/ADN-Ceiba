@@ -27,7 +27,6 @@ public class CommandProduct {
 
 
 	public CommandProduct(Long id, String codigo, String nombre, Long qty) {
-
 		this.id = id;
 		this.codigo = codigo;
 		this.nombre = nombre;

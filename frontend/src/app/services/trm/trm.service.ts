@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,16 @@ export class TrmService {
   bodyTrm: string;
   response: Observable<string>;
 
+  httpOptions = {
+    headers: new HttpHeaders({ 
+      'Access-Control-Allow-Origin':'*',
+      'Authorization':'authkey',
+      'userid':'1'
+    })
+  };
+
   constructor(private http: HttpClient) {
+   
     this.urlTrm = "https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService";
     this.bodyTrm = "<Envelope xmlns=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
       "<Body>" +
@@ -22,7 +31,10 @@ export class TrmService {
 
   }
   getTrm() {
-    this.response = this.http.post<string>(this.urlTrm, this.bodyTrm);
+    console.log("Se va obetener la trm");
+    this.http.post<string>(this.urlTrm, this.bodyTrm,this.httpOptions).subscribe( data => {
+      console.log('Respuesta :'+data);      
+    });
     console.log(this.response);
     return this.response;
 

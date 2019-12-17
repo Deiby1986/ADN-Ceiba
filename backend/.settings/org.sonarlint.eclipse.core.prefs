@@ -5,4 +5,4 @@ fileExclusions=
 idePrefixKey=
 projectKey=com.co.adn.ceiba\:Ceiba.ADNVentas.Deiby.Manzo
 serverId=sonar.ceiba.com.co
-sqPrefixKey=
+sqPrefixKey=backend

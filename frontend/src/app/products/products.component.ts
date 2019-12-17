@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.prService.getProducts();
-   // this.trm = this.trmService.getTrm(); 
+    //this.trm = this.trmService.getTrm(); 
    // this.trm.subscribe(trm=>console.log(trm));    
   }
 
