@@ -3,8 +3,6 @@ package com.co.ceiba.adn.application.command.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Getter;
-@Getter
 public class CommandSalesHeader {
 	
 	private Long id;
@@ -31,6 +29,69 @@ public class CommandSalesHeader {
 		if(detalles!=null)
 			this.detalles.addAll(detalles);
 	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
+
+
+
+	public String getFecha() {
+		return fecha;
+	}
+
+
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+
+
+	public Double getTotal() {
+		return total;
+	}
+
+
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+
+
+
+	public List<CommandSalesDetail> getDetalles() {
+		return detalles;
+	}
+
+
+
+	public void setDetalles(List<CommandSalesDetail> detalles) {
+		this.detalles = detalles;
+	}
+	
+	
+	
 	
 	
 
