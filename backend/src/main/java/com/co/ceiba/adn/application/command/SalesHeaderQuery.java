@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.co.ceiba.adn.application.command.handlers.SalesHeaderHandleQuery;
-import com.co.ceiba.adn.domain.model.dto.ProductDto;
 import com.co.ceiba.adn.domain.model.dto.SalesHeaderDto;
 
 import io.swagger.annotations.ApiOperation;

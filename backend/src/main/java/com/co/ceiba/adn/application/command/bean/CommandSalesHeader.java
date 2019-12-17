@@ -81,13 +81,14 @@ public class CommandSalesHeader {
 
 
 	public List<CommandSalesDetail> getDetalles() {
-		return detalles;
+		return new ArrayList<>(detalles);
 	}
 
 
 
 	public void setDetalles(List<CommandSalesDetail> detalles) {
-		this.detalles = detalles;
+		this.detalles = new ArrayList<>(); 
+        this.detalles.addAll(detalles);
 	}
 	
 	
