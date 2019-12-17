@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SalesService } from '../services/sales/sales.service';
+import { Observable } from 'rxjs';
+import { Salesheader } from '../models/salesheader';
 
 @Component({
   selector: 'app-sales',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesComponent implements OnInit {
 
-  constructor() { }
+  sales:Observable<Salesheader[]>;
+  constructor(private router: Router,
+    private salesService:SalesService) { 
+
+    }
 
   ngOnInit() {
+    this.sales = this.salesService.getSales();
   }
 
   addVenta(){

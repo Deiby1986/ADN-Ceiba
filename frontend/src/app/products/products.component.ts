@@ -17,7 +17,10 @@ import { TrmService } from '../services/trm/trm.service';
 export class ProductsComponent implements OnInit {
   products : Observable<Product[]>;
   trm:Observable<string>;
-  constructor( private router: Router,private prService:ProductsServiceService,private trmService:TrmService) { }
+  constructor( 
+    private router: Router,
+    private prService:ProductsServiceService,
+    private trmService:TrmService) { }
 
   ngOnInit() {
     this.products = this.prService.getProducts();

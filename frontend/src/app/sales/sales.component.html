@@ -1,6 +1,6 @@
 <button type="button" class="btn btn-outline-primary" (click)="addVenta()">Agregar Venta</button>
 <div class="lista-productos">
-       <!-- <div *ngIf="(products | async)?.length > 0">          -->
+        <div *ngIf="(sales | async)?.length > 0">          
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <thead class="thead">
@@ -12,10 +12,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let product of products | async" >                               
-                                <td>{{product.codigo}}</td>
-                                <td>{{product.nombre}}</td>
-                                <td>{{product.price}}</td>                               
+                            <tr *ngFor="let sale of sales | async" >                               
+                                <td>{{sale.nombreCliente}}</td>
+                                <td>{{sale.fecha}}</td>
+                                <td>{{sale.total}}</td>                               
                             </tr>
                         </tbody>
                     </table>
