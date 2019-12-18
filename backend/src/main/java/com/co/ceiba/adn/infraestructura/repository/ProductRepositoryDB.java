@@ -19,12 +19,7 @@ public class ProductRepositoryDB implements ProductRepository {
 	public ProductRepositoryDB(ProductDao rep) {
 		super();
 		this.rep = rep;
-	}
-
-	@Override
-	public List<Product> findAll() {
-		return rep.findAll();
-	}
+	}	
 
 	@Override
 	public List<ProductDto> findAllAsDto() {
