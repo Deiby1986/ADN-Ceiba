@@ -129,9 +129,13 @@ export class SalesFormComponent implements OnInit {
 
   }
 
-  gotoSales() {
-    if (window.confirm('¿Esta seguro que desea cancelar la venta?'))
+  gotoSales() {    
       this.router.navigate(['/sales']);
+  }
+
+  cancel(){
+    if (window.confirm('¿Esta seguro que desea cancelar la venta?'))
+      this.gotoSales();
   }
 
 
