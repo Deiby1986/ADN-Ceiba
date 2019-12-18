@@ -1,5 +1,6 @@
 package com.co.ceiba.adn.infraestructura;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -51,5 +52,19 @@ public class TestProductCommand {
 		
 		
 	}
+	
+	@Test
+	public void listProducts() throws JsonProcessingException, Exception{
+		CommandProduct prCommand= new CommandProductDataBuilder().build();		
+		
+		mockMvc.perform(get("/api/products").
+							contentType(MediaType.APPLICATION_JSON).
+							content(objetcMapper.writeValueAsString(prCommand))).andExpect(status().isOk());
+		
+		
+	}
+	
+	
+	
 
 }

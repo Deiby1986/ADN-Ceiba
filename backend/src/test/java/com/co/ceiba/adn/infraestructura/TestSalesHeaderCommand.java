@@ -1,5 +1,6 @@
 package com.co.ceiba.adn.infraestructura;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -48,6 +49,15 @@ public class TestSalesHeaderCommand {
 		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetail(null).build();		
 		
 		mockMvc.perform(post("/api/sales").
+							contentType(MediaType.APPLICATION_JSON).
+							content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void listSales() throws JsonProcessingException, Exception{
+		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetail(null).build();		
+		
+		mockMvc.perform(get("/api/sales").
 							contentType(MediaType.APPLICATION_JSON).
 							content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk());
 	}
