@@ -37,7 +37,8 @@ public class SalesHeaderService {
 	
 	public boolean dateFormatCorrect(String date) {
 		String regexp = "\\d{1,2}/\\d{1,2}/\\d{4}";
-		return Pattern.matches(regexp, date);		
+		String dates[] = date.split(regexp);
+		return dates.length == 0;		
 	}
 
 }
