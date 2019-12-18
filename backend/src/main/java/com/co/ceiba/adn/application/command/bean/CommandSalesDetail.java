@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+@Setter
+@Getter
 
 public class CommandSalesDetail {
 	
@@ -24,52 +26,5 @@ public class CommandSalesDetail {
 		this.total = total;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getIdHeader() {
-		return idHeader;
-	}
-
-	public void setIdHeader(Long idHeader) {
-		this.idHeader = idHeader;
-	}
-
-	public Long getIdProduct() {
-		return idProduct;
-	}
-
-	public void setIdProduct(Long idProduct) {
-		this.idProduct = idProduct;
-	}
-
-	public Long getQtyPurchased() {
-		return qtyPurchased;
-	}
-
-	public void setQtyPurchased(Long qtyPurchased) {
-		this.qtyPurchased = qtyPurchased;
-	}
-
-	public Long getTotal() {
-		return total;
-	}
-
-	public void setTotal(Long total) {
-		this.total = total;
-	}
 	
-	
-
-	
-	
-	
-	
-	
-
 }

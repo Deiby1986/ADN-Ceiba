@@ -28,9 +28,4 @@ public class SalesDetailRepositoryDB implements SalesDetailRepository{
 		return detailDao.save(p);
 	}
 
-	@Override
-	public SalesDetail findById(Long id) {
-		return detailDao.findById(id).orElse(null);
-	}
-
 }

@@ -31,11 +31,6 @@ public class ProductRepositoryDB implements ProductRepository {
 	@Override
 	public Product findByCode(String code) {		
 		return rep.findByCode(code);
-	}
-
-	@Override
-	public Product findById(Long id) {
-		return rep.findById(id).orElse(null);
 	}	
 	
 

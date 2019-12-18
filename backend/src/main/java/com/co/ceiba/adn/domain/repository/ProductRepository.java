@@ -8,7 +8,7 @@ import com.co.ceiba.adn.domain.model.entities.Product;
 public interface ProductRepository {
 	public List<ProductDto> findAllAsDto();	
 	public Product findByCode(String code);
-	public Product findById(Long id);
+	
 	public Product save(Product p);
 	
 
