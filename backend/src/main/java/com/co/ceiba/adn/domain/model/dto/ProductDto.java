@@ -11,8 +11,7 @@ public class ProductDto {
 	private String codigo;
 	private String nombre;
 	private Double price;
-	private Long qty;
-	
+	private Long qty;	
 	
 	public ProductDto(Long id, String codigo, String nombre,Double price, Long qty) {
 		super();

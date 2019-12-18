@@ -14,25 +14,6 @@ public class CommandProduct {
 	}
 	
 	
-	
-	public CommandProduct(Long id, String codigo, String nombre, Long qty, double price) {
-		super();
-		this.id = id;
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.qty = qty;
-		this.price = price;
-	}
-
-
-
-	public CommandProduct(Long id, String codigo, String nombre, Long qty) {
-		this.id = id;
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.qty = qty;
-	}
-	
 	public CommandProduct(String codigo, String nombre, Long qty) {		
 		this.codigo = codigo;
 		this.nombre = nombre;

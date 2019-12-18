@@ -6,19 +6,7 @@ public class CommandSalesDetail {
 	private Long  idHeader;
 	private Long  idProduct;	
 	private Long qtyPurchased;	
-	private Long total;
-	
-	public CommandSalesDetail() {
-		
-	}
-	
-	public CommandSalesDetail(Long id, Long idHeader, Long idProduct, Long qtyPurchased, Long total) {	
-		this.id = id;
-		this.idHeader = idHeader;
-		this.idProduct = idProduct;
-		this.qtyPurchased = qtyPurchased;
-		this.total = total;
-	}
+	private Long total;	
 	
 	public CommandSalesDetail(Long idHeader, Long idProduct, Long qtyPurchased, Long total) {		
 		this.idHeader = idHeader;

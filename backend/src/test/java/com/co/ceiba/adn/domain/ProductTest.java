@@ -41,7 +41,7 @@ public class ProductTest {
 			assertThrows(FieldLengthException.class,()->builder.withName("ABC").build());	
 	}
 	
-	
+	@Test
 	public void testProductBean() {
 		String code = "123456";
 		String name = "Producto123";

@@ -12,8 +12,6 @@ public class SalesHeaderDto {
 	private String fecha;	
 	private Double total;
 	
-	public SalesHeaderDto() {		
-	}
 
 	public SalesHeaderDto(Long id, String nombreCliente, String fecha, Double total) {
 		this.id = id;
