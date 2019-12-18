@@ -1,7 +1,7 @@
 export class Product {
-    id:number;	
-	codigo:String;	
-	nombre:String;
-	price:number;
-	qty:number;
+    public id:number;	
+	public codigo:String;	
+	public nombre:String;
+	public price:number;
+	public qty:number;
 }

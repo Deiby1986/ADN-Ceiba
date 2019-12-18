@@ -1,7 +1,7 @@
 export class Salesdetail {
-    private id:number;	
-	private idHeader:number;
-	private idProduct:number;	
-	private qtyPurchased:number;	
-	private total:number;
+    public id:number;	
+	public idHeader:number;
+	public idProduct:number;	
+	public qtyPurchased:number;	
+	public total:number;
 }

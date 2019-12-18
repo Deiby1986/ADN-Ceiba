@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Salesheader } from 'src/app/models/salesheader';
 import { environment } from 'src/app/helpers/enviroment';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,15 @@ export class SalesService {
 
   getSales():Observable<Salesheader[]>{    
     return this.http.get<any>(environment.endpointBackend + '/api/sales');
+  }
+
+  addSale(sale:Salesheader){
+    console.log("Se agregara producto ");
+    return this.http.post<any>(environment.endpointBackend + '/api/sales', sale)
+      .pipe(map(res => {
+        console.log("Service response : ", res);
+        return res;
+      }));
+
   }
 }

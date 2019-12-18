@@ -1,6 +1,9 @@
+import { Salesdetail } from './salesdetail';
+
 export class Salesheader {
-    private id:number;
-	private nombreCliente:string;
-	private fecha:string;	
-	private total:string;
+    public id:number;
+	public nombreCliente:string;
+	public fecha:string;	
+	public total:string;
+	public detalles :Salesdetail[];
 }
