@@ -26,6 +26,7 @@ public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 	}	
 	
 	public List<SalesHeaderDto> findAllAsDto(){
+		System.out.println("Listando productos");
 		return salesDao.findAll().stream().map(header -> new SalesHeaderDto(header.getId(), header.getClientName(), header.getDate(), header.getTotal())).collect(Collectors.toList());
 	}
 
