@@ -22,6 +22,7 @@ export class SalesComponent implements OnInit {
   }
 
   addVenta(){
+    console.log("Ir a venta");
     this.router.navigate(['/sale']);
   }
 

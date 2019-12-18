@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { ProductsServiceService } from '../services/products/products-service.service';
+import { Product } from '../models/product';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,11 +16,13 @@ export class SalesFormComponent implements OnInit {
 
   orderForm: FormGroup;
   items: FormArray;
+  products: Product[];  
 
   constructor(
       private formBuilder: FormBuilder,
       private datePipe: DatePipe,
-      private router: Router) { }
+      private router: Router,
+      private prService:ProductsServiceService) { }
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
@@ -26,15 +31,41 @@ export class SalesFormComponent implements OnInit {
       total: '',
       items: this.formBuilder.array([this.createItem()])
     });
+    this.prService.getProducts().subscribe((products)=>{this.products = products;console.log(this.products);});
   }
 
   createItem(): FormGroup {
     return this.formBuilder.group({
       producto: '',
-      cantidad: '',
-      precio: '',
-      total:''
+      cantidad: '1',
+      precio: new FormControl({value: null, disabled: true}, Validators.required),
+      total:new FormControl({value: 0, disabled: true}, Validators.required)
     });
+  }
+ 
+  calculate(){  
+    console.log("Calculando...");
+    var itemsCl: FormArray;
+    itemsCl = this.orderForm.get('items') as FormArray;    
+    let totalLocal = 0;
+    let vacios = 0;
+    for (let i=0;i<itemsCl.length;i++){        
+        var pr : Product;                
+        pr = itemsCl.at(i).get("producto").value;
+        if(pr.id == undefined){
+          vacios++;
+          continue;
+        }
+        let cantidad = itemsCl.at(i).get("cantidad").value;
+        let subtotal = cantidad * pr.price;
+        totalLocal = totalLocal + subtotal;       
+        itemsCl.at(i).get("precio").setValue(pr.price);
+        itemsCl.at(i).get("total").setValue(subtotal);
+    }    
+
+    this.orderForm.controls['total'].setValue(totalLocal);
+    if(vacios == 0)
+       this.addItem();
   }
 
   addItem(): void {
@@ -42,8 +73,37 @@ export class SalesFormComponent implements OnInit {
     this.items.push(this.createItem());
   }
 
-  gotoSales(){
-    this.router.navigate(['/sales']);
+  deleteItem(i:number): void {
+    this.items = this.orderForm.get('items') as FormArray;
+    if(this.items.length > 1){
+      this.items.removeAt(i);
+      this.calculate();
+    }
+    
   }
+
+
+  saveSale(){
+    console.log("Guardando venta");
+    var itemsCl: FormArray;    
+    itemsCl = this.orderForm.get('items') as FormArray;    
+    let totalLocal = 0;
+    let vacios = 0;
+    for (let i=0;i<itemsCl.length;i++){ }
+
+    let saleBean = {
+      "nombreCliente":this.orderForm.controls['cliente'].value,
+      "fecha":this.orderForm.controls['fecha'].value,
+      "total":this.orderForm.controls['total'].value,
+    }
+    console.log(saleBean);
+  }
+
+  gotoSales(){
+    if(window.confirm('¿Esta seguro que desea cancelar la venta?'))
+      this.router.navigate(['/sales']);
+  }
+
+
 
 }

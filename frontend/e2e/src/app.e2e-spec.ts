@@ -24,10 +24,15 @@ describe('workspace-project App', () => {
     browser.get('http://localhost:4200/products');
     expect(element(by.tagName('table')).isDisplayed()).toBeTruthy();    
   });
+
+  it('list sales', function() {
+    browser.get('http://localhost:4200/sales');
+    expect(element(by.tagName('table')).isDisplayed()).toBeTruthy();    
+  });
   
   it('save product', function() {
     browser.get('http://localhost:4200/product');
-    let codigoNumber = Math.random()*1000;
+    let codigoNumber = Math.random()*1000+100;
     let codigo = codigoNumber.toString();
     codigo = codigo.substring(1,2);
     element(by.name('codigo')).sendKeys("PROTRACTOR"+codigo);
