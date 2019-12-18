@@ -22,7 +22,7 @@ export class SalesComponent implements OnInit {
   }
 
   addVenta(){
-    
+    this.router.navigate(['/sale']);
   }
 
 }

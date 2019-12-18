@@ -1,0 +1,56 @@
+
+<div class="con">
+    <h3>Factura</h3>
+    <div style="width: 80%;margin-left: 10em;">
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <label for="name">Fecha</label>
+                <input type="text" class="form-control" id="fecha" name="fecha" formControlName="fecha" readonly>
+            </div>
+            <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <label for="name">Cliente</label>
+                <input type="text" class="form-control" id="cliente" name="cliente" formControlName="cliente">               
+            </div>
+
+                        
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Total</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody formArrayName="items"  *ngFor="let item of orderForm.get('items').controls; let i = index;">
+                        <tr [formGroupName]="i">
+                            <td><input formControlName="producto" placeholder="Producto"></td>
+                            <td><input formControlName="cantidad" placeholder="Producto"></td>
+                            <td><input formControlName="precio" placeholder="Producto" readonly></td>
+                            <td><input formControlName="total" placeholder="Producto" readonly></td>
+                            <td>Eliminar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <label for="name">Total</label>
+                <input type="text" class="form-control" id="total" name="total" formControlName="total">
+            </div>
+
+            <div class="form-group col">
+                <button type="submit" class="btn btn-success  " [disabled]="orderForm.invalid" name="guardar">Guardar</button>
+                <button type="button" class="btn bg-light" (click)="gotoSales()" name="cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!--<div>
+        <h4>You submitted successfully!</h4>
+        
+    </div>-->
+</div>
+
+

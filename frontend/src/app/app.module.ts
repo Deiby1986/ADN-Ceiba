@@ -12,6 +12,8 @@ import { TrmService } from './services/trm/trm.service';
 import { ProductsFormComponent } from './products-form/products-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { SalesFormComponent } from './sales-form/sales-form.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -20,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     ProductsComponent,
     SalesComponent,
-    ProductsFormComponent
+    ProductsFormComponent,
+    SalesFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   
-  providers: [ProductsServiceService],
+  providers: [ProductsServiceService,DatePipe],
   bootstrap: [AppComponent]
 
 })
