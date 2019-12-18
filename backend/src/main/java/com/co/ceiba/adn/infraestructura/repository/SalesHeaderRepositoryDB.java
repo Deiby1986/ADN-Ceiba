@@ -18,25 +18,19 @@ public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 	public SalesHeaderRepositoryDB(SalesHeaderDao salesDao) {
 		super();
 		this.salesDao = salesDao;
-	}
-
-	@Override
-	public List<SalesHeader> findAll() {		
-		return salesDao.findAll();
-	}
+	}	
 
 	@Override
 	public SalesHeader save(SalesHeader p) {		
 		return salesDao.save(p);
-	}
-
-	@Override
-	public SalesHeader findById(Long id) {
-		return salesDao.findById(id).orElse(null);
-	}
+	}	
 	
 	public List<SalesHeaderDto> findAllAsDto(){
 		return salesDao.findAll().stream().map(header -> new SalesHeaderDto(header.getId(), header.getClientName(), header.getDate(), header.getTotal())).collect(Collectors.toList());
 	}
+
+
+
+	
 
 }
