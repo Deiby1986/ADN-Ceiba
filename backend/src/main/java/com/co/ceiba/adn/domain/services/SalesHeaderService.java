@@ -3,7 +3,6 @@ package com.co.ceiba.adn.domain.services;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Pattern;
 
 import com.co.ceiba.adn.domain.exceptions.CanSellOnWekendsException;
 import com.co.ceiba.adn.domain.exceptions.InvalidDateException;
@@ -37,7 +36,7 @@ public class SalesHeaderService {
 	
 	public boolean dateFormatCorrect(String date) {
 		String regexp = "\\d{1,2}/\\d{1,2}/\\d{4}";
-		String dates[] = date.split(regexp);
+		String []dates = date.split(regexp);
 		return dates.length == 0;		
 	}
 
