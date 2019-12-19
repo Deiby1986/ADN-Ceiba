@@ -9,7 +9,7 @@ import com.co.ceiba.adn.domain.model.entities.Product;
 public class ProductFactory {
 	
 	public Product createProducto(CommandProduct pr) {
-		return new Product(pr.getCodigo(), pr.getNombre(), pr.getQty(),pr.getPrice());		
+		return new Product(pr.getId(),pr.getCodigo(), pr.getNombre(), pr.getQty(),pr.getPrice());		
 	}
 
 }

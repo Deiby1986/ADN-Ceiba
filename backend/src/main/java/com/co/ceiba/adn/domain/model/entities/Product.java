@@ -43,7 +43,7 @@ public class Product implements Serializable {
 	
 	}
 
-	public Product(String codigo, String name, Long qty,Double price) {
+	public Product(Long id,String codigo, String name, Long qty,Double price) {
 		super();
 		if(codigo == null || codigo.trim().length() == 0)
 			throw new FieldEmptyOrNullException("Codigo del producto no puede ser vacio");
@@ -53,6 +53,7 @@ public class Product implements Serializable {
 			throw new FieldLengthException("Longitud del codigo no puede ser menor que 5");
 		if(name.length()<5)
 			throw new FieldLengthException("Longitud del nombre no puede ser menor que 5");
+		this.id = id;
 		this.codigo = codigo;
 		this.nombre = name;
 		this.qty = qty;

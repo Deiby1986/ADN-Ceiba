@@ -19,6 +19,8 @@ public class ProductService {
 	}
 	
 	private boolean validateProduct(Product p) {
+		if (p.getId() != null || p.getId() != 0) 
+				return true;
 		return productRepository.findByCode(p.getCodigo())==null;
 	}
 	

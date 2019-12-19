@@ -3,6 +3,7 @@ package com.co.ceiba.adn.domain.builder;
 import com.co.ceiba.adn.domain.model.entities.Product;
 
 public class ProductTestDataBuilder {
+	private Long id;
 	private String codigo;
 	private String nombre;
 	private Long qty;
@@ -10,6 +11,7 @@ public class ProductTestDataBuilder {
 	
 	public ProductTestDataBuilder() {
 		super();
+		this.id = 0L;
 		this.codigo = "PR001";
 		this.nombre = "Producto Prueba";
 		this.qty = 100L;
@@ -32,7 +34,7 @@ public class ProductTestDataBuilder {
 	}
 	
 	public Product build() {
-		return new Product(codigo,nombre,qty,this.price);
+		return new Product(id,codigo,nombre,qty,this.price);
 	}
 
 	
