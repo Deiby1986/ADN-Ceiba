@@ -12,6 +12,7 @@ import { Salesheader } from '../models/salesheader';
 export class SalesComponent implements OnInit {
 
   sales:Observable<Salesheader[]>;
+  salesList:Salesheader[];
   constructor(private router: Router,
     private salesService:SalesService) { 
 
@@ -19,11 +20,19 @@ export class SalesComponent implements OnInit {
 
   ngOnInit() {
     this.sales = this.salesService.getSales();
+    this.sales.subscribe(data=>{
+      this.salesList = data as Salesheader[];      
+    })
   }
 
   addVenta(){
     console.log("Ir a venta");
     this.router.navigate(['/sale']);
+  }
+
+  viewSale(id:number){
+    console.log("Viendo compra "+id);    
+    this.router.navigate(['/sale', id]);
   }
 
 }

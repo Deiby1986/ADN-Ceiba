@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsServiceService } from '../services/products/products-service.service';
 import { Product } from '../models/product';
 import { Observable } from 'rxjs';
@@ -20,15 +20,26 @@ export class SalesFormComponent implements OnInit {
   orderForm: FormGroup;
   items: FormArray;
   products: Product[];
+  sale: Salesheader;
+  idSale: number;
+  private sub: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private datePipe: DatePipe,
     private router: Router,
+    private route: ActivatedRoute,
     private prService: ProductsServiceService,
-    private salesService : SalesService) { }
+    private salesService: SalesService) { }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.idSale = params["id"];
+      //this.id = +params['id']; 
+
+    });
+    if(this.idSale!=undefined)
+    console.log("Hay venta");
     this.orderForm = this.formBuilder.group({
       cliente: '',
       fecha: this.datePipe.transform(new Date(), "dd/MM/yyyy"),
@@ -88,9 +99,9 @@ export class SalesFormComponent implements OnInit {
 
 
   saveSale() {
-    var header : Salesheader;
+    var header: Salesheader;
     header = {
-      id:0,
+      id: 0,
       nombreCliente: this.orderForm.controls['cliente'].value,
       fecha: this.orderForm.controls['fecha'].value,
       total: this.orderForm.controls['total'].value,
@@ -100,11 +111,11 @@ export class SalesFormComponent implements OnInit {
     console.log(header);
     this.salesService.addSale(header).subscribe(data => {
       console.log(data);
-      this.gotoSales();      
+      this.gotoSales();
     });
   }
 
-  getSaleDetails():Salesdetail[]{
+  getSaleDetails(): Salesdetail[] {
     var itemsCl: FormArray;
     itemsCl = this.orderForm.get('items') as FormArray;
     var pr: Product;
@@ -129,11 +140,11 @@ export class SalesFormComponent implements OnInit {
 
   }
 
-  gotoSales() {    
-      this.router.navigate(['/sales']);
+  gotoSales() {
+    this.router.navigate(['/sales']);
   }
 
-  cancel(){
+  cancel() {
     if (window.confirm('¿Esta seguro que desea cancelar la venta?'))
       this.gotoSales();
   }

@@ -8,14 +8,21 @@
                                 <th>Cliente</th>
                                 <th>Fecha</th>
                                 <th>Total</th>
-                               
+                               <!--<th>Opciones</th> -->
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let sale of sales | async" >                               
+                            <tr *ngFor="let sale of sales | async;let i=index" >                               
                                 <td>{{sale.nombreCliente}}</td>
                                 <td>{{sale.fecha}}</td>
-                                <td>{{sale.total}}</td>                               
+                                <td>{{sale.total}}</td>    
+                                <!--<td > 
+                                    <button type="button" class="btn btn-labeled btn-default" (click)="viewSale(i)">
+                                    <span class="btn-label"><i class="glyphicon glyphicon-chevron-right">
+                                        </i>
+                                    </span>
+                                    Ver compra
+                                </button></td>    -->                         
                             </tr>
                         </tbody>
                     </table>

@@ -11,6 +11,7 @@ import { SalesFormComponent } from './sales-form/sales-form.component';
 const routes: Routes = [
   {path:'sales',component:SalesComponent},
   {path:'sale',component:SalesFormComponent},
+  {path:'sale/:id',component:SalesFormComponent},
   {path:'products',component:ProductsComponent},
   {path:'product',component:ProductsFormComponent}
 ];
