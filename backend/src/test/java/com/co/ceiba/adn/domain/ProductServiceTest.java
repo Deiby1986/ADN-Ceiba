@@ -20,9 +20,7 @@ public class ProductServiceTest {
 		ProductRepositoryDB productRepository = Mockito.mock(ProductRepositoryDB.class);
 		Mockito.when(productRepository.findByCode(Mockito.any())).thenReturn(product);		
 		ProductService service = new ProductService(productRepository);
-		assertThrows(
-					CodeExistsException.class,
-					()-> service.execute(product));		
+		assertThrows(CodeExistsException.class,()-> service.execute(product));		
 	}	
 	
 	@Test
