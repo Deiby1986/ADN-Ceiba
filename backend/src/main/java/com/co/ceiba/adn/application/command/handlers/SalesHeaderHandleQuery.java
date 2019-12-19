@@ -19,5 +19,9 @@ public class SalesHeaderHandleQuery {
 	public List<SalesHeaderDto> list(){
 		return repository.findAllAsDto();
 	}
+	
+	public SalesHeaderDto findById(Long id) {
+		return repository.findById(id);
+	}
 
 }

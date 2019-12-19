@@ -1,4 +1,4 @@
-package com.co.ceiba.adn;
+package com.co.ceiba.adn.infraestructura.servicio;
 
 
 import org.springframework.context.annotation.Bean;

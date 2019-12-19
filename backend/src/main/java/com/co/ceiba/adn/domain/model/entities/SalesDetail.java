@@ -1,5 +1,7 @@
 package com.co.ceiba.adn.domain.model.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 import com.co.ceiba.adn.domain.exceptions.FieldEmptyOrNullException;
@@ -19,6 +22,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "SalesDetail")
+@NamedNativeQuery(name = "SalesDetail.findAllForHeaderId", query = "SELECT * FROM SalesDetail WHERE id_salesheader = ?", resultClass =List.class)
 public class SalesDetail {
 	@Id
 	@Column(name = "id")

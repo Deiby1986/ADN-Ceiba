@@ -29,8 +29,8 @@ public class BeanServicio {
 	}
 	
 	@Bean
-	public SalesHeaderService createHeaderService(SalesHeaderDao daoHeader) {
-		return new SalesHeaderService(new SalesHeaderRepositoryDB(daoHeader));
+	public SalesHeaderService createHeaderService(SalesHeaderDao daoHeader,SalesDetailDao daoDetail) {
+		return new SalesHeaderService(new SalesHeaderRepositoryDB(daoHeader,daoDetail));
 	}
 
 }
