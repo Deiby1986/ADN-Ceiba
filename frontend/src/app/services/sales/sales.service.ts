@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SalesService {
+  private currentSale: Salesheader;
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +24,13 @@ export class SalesService {
         console.log("Service response : ", res);
         return res;
       }));
+  }
 
+  setCurrentSale(sale:Salesheader){
+    this.currentSale = sale;
+  }
+
+  getCurrentSale():Salesheader{
+    return this.currentSale;
   }
 }

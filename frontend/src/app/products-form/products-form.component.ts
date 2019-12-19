@@ -15,16 +15,20 @@ export class ProductsFormComponent implements OnInit {
   addProductForm: FormGroup;
 
   constructor( private formBuilder: FormBuilder,
-    private libroService: ProductsServiceService,
+    private productService: ProductsServiceService,
     private router: Router) { }
 
   ngOnInit() {
+    this.product = this.productService.getCurrentProduct();
+    if(this.product == undefined || this.product.id == undefined)
+      this.product = {id:0,nombre:'',codigo:'',price:0,qty:0};
+    
     this.addProductForm = this.formBuilder.group({
-      id:['',''],
-      codigo:['',Validators.required],
-      nombre:['',Validators.required],
-      precio:['',Validators.required],
-      cantidad:['',Validators.required],
+      id:[this.product.id,''],
+      codigo:[this.product.codigo,Validators.required],
+      nombre:[this.product.nombre,Validators.required],
+      precio:[this.product.price,Validators.required],
+      cantidad:[this.product.qty,Validators.required],
     })
   }
 
@@ -46,7 +50,7 @@ export class ProductsFormComponent implements OnInit {
         qty:this.AddProductoFormCtrl.cantidad.value,
     }
     console.log(this.product);
-    this.libroService.addProduct(this.product).subscribe( data => {
+    this.productService.addProduct(this.product).subscribe( data => {
       console.log(data);
       this.gotoProducts();
       

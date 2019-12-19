@@ -16,6 +16,7 @@ import { TrmService } from '../services/trm/trm.service';
 })
 export class ProductsComponent implements OnInit {
   products : Observable<Product[]>;
+  productsList : Product[];
   trm:Observable<string>;
   constructor( 
     private router: Router,
@@ -24,12 +25,18 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.prService.getProducts();
-    //this.trm = this.trmService.getTrm(); 
-   // this.trm.subscribe(trm=>console.log(trm));    
+    this.products.subscribe(data=>{
+      this.productsList = data as Product[];      
+    })
+    this.prService.seCurrentProduct(null);   
   }
 
   addProduct(){
     this.router.navigate(['/product']);
+  }
+
+  editProduct(i:number){
+      this.prService.seCurrentProduct(this.productsList[i]);
   }
 
 }

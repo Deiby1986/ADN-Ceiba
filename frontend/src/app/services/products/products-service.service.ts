@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProductsServiceService {
-
+  private currentProduct:Product;
   constructor(private http: HttpClient) {
   }
 
@@ -28,5 +28,15 @@ export class ProductsServiceService {
       }));
   }
 
+  seCurrentProduct(p:Product){
+    console.log("guardando producto");
+    console.log(p);
+    this.currentProduct = p;
+  }
 
+  getCurrentProduct():Product{
+    console.log("obteniendo producto");
+    console.log(this.currentProduct);
+    return this.currentProduct;
+  }
 }

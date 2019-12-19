@@ -13,13 +13,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products | async">
+                    <tr *ngFor="let product of products | async;let i = index">
                         <td>{{product.codigo}}</td>
                         <td>{{product.nombre}}</td>
                         <td>{{product.price}}</td>
                         <td>{{product.qty}}</td>
                         <td><a routerLink="/product">
-                                <button type="button" class="btn btn-labeled btn-default">
+                                <button type="button" class="btn btn-labeled btn-default" (click)="editProduct(i)">
                                     <span class="btn-label"><i class="glyphicon glyphicon-chevron-right">
                                         </i>
                                     </span>
