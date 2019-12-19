@@ -28,8 +28,8 @@ public class SalesHeaderTestDataBuilder {
 		return this;
 	}
 	
-	public SalesHeaderTestDataBuilder withTotal(String date) {
-		this.date = date;
+	public SalesHeaderTestDataBuilder withTotal(Double total) {
+		this.total = total;
 		return this;
 	}
 	

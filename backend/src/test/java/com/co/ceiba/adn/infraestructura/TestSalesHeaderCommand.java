@@ -20,6 +20,7 @@ import com.co.ceiba.adn.App;
 import com.co.ceiba.adn.application.command.bean.CommandProduct;
 import com.co.ceiba.adn.application.command.bean.CommandSalesHeader;
 import com.co.ceiba.adn.infraestructura.builder.CommandProductDataBuilder;
+import com.co.ceiba.adn.infraestructura.builder.CommandSalesDetailDataBuilder;
 import com.co.ceiba.adn.infraestructura.builder.CommandSalesHeaderDataBuilder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,8 +46,18 @@ public class TestSalesHeaderCommand {
 	}
 	
 	@Test
-	public void createSales() throws JsonProcessingException, Exception{
+	public void createSalesWithoutDetails() throws JsonProcessingException, Exception{
 		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetail(null).build();		
+		
+		mockMvc.perform(post("/api/sales").
+							contentType(MediaType.APPLICATION_JSON).
+							content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void createSalesWithDetails() throws JsonProcessingException, Exception{
+		CommandSalesDetailDataBuilder detailBuilder = new CommandSalesDetailDataBuilder();
+		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetails(detailBuilder.build()).build();		
 		
 		mockMvc.perform(post("/api/sales").
 							contentType(MediaType.APPLICATION_JSON).

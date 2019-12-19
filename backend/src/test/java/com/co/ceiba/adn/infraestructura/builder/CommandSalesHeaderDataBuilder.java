@@ -48,6 +48,12 @@ public class CommandSalesHeaderDataBuilder {
 		return this;
 	}
 	
+	public CommandSalesHeaderDataBuilder withDetails(List<CommandSalesDetail> detail) {		
+		if(detail!=null)
+			this.detalles = new ArrayList<>(detail);
+		return this;
+	}
+	
 	public CommandSalesHeader build() {		
 		return new CommandSalesHeader(0L, nombreCliente, date, total, detalles);
 	}
