@@ -63,9 +63,8 @@ public class CommandSalesHeader {
 	}
 
 	public void setDetalles(List<CommandSalesDetail> detalles) {
-		this.detalles = new ArrayList<>();
-		if (detalles != null)
-			this.detalles.addAll(detalles);
+		this.detalles = new ArrayList<>();		
+		this.detalles.addAll(detalles);
 	}
 
 }
