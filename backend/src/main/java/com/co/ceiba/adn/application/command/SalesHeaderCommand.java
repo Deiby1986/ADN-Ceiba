@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/sales")
-@CrossOrigin(origins = "http://localhost:4200", methods= {RequestMethod.POST})
+
 public class SalesHeaderCommand {
 	private SalesHeaderHandleCreate service;
 	
