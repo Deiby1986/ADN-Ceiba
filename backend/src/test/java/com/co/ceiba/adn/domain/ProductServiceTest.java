@@ -16,7 +16,7 @@ public class ProductServiceTest {
 	
 	@Test
 	public void testProductExistence() {		
-		Product product = new ProductTestDataBuilder().build();
+		Product product = new ProductTestDataBuilder().withId(null).build();
 		ProductRepositoryDB productRepository = Mockito.mock(ProductRepositoryDB.class);
 		Mockito.when(productRepository.findByCode(Mockito.any())).thenReturn(product);		
 		ProductService service = new ProductService(productRepository);

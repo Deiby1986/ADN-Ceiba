@@ -33,6 +33,11 @@ public class ProductTestDataBuilder {
 		return this;		
 	}
 	
+	public ProductTestDataBuilder withId(Long id) {
+		this.id = id;
+		return this;		
+	} 
+	
 	public Product build() {
 		return new Product(id,codigo,nombre,qty,this.price);
 	}
