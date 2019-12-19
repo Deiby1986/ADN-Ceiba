@@ -2,10 +2,8 @@ package com.co.ceiba.adn.application.command;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.co.ceiba.adn.application.command.handlers.ProductHandleQuery;
