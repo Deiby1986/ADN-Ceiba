@@ -16,17 +16,19 @@ describe('workspace-project App', () => {
 
   it('Should load', function() {
     browser.get('http://localhost:4200/');
-
+    browser.sleep(5000);
     expect(browser.getTitle()).toEqual('Salesfront');
   });
   
   it('list products', function() {
     browser.get('http://localhost:4200/products');
+    browser.sleep(2000);
     expect(element(by.tagName('table')).isDisplayed()).toBeTruthy();    
   });
 
   it('list sales', function() {
     browser.get('http://localhost:4200/sales');
+    browser.sleep(2000);
     expect(element(by.tagName('table')).isDisplayed()).toBeTruthy();    
   });
   
@@ -40,6 +42,18 @@ describe('workspace-project App', () => {
     element(by.name('precio')).sendKeys("10.0");
     element(by.name('cantidad')).sendKeys("10");
     element(by.name('guardar')).click();
+    browser.sleep(2000);
+    expect(element(by.tagName('table')).isDisplayed()).toBeTruthy();    
+  });
+
+  it('purchase first product', function() {
+    browser.get('http://localhost:4200/sale');
+    
+    element(by.name('cliente')).sendKeys("Cliente prueba automatizada");
+    element(by.xpath("//table/tbody/tr/select[formcontrolname='producto']")).sendKeys("PR");
+    element(by.xpath("//table/tbody/tr/input[name='cantidad']")).sendKeys("PR");   
+    element(by.name('guardar')).click();
+    browser.sleep(2000);
     expect(element(by.tagName('table')).isDisplayed()).toBeTruthy();    
   });
 
