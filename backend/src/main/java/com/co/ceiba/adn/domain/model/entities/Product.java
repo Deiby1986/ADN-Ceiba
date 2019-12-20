@@ -44,7 +44,6 @@ public class Product implements Serializable {
 	}
 
 	public Product(Long id,String codigo, String name, Long qty,Double price) {
-		super();
 		if(codigo == null || codigo.trim().length() == 0)
 			throw new FieldEmptyOrNullException("Codigo del producto no puede ser vacio");
 		if(name == null || name.trim().length() == 0)

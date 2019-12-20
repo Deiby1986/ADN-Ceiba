@@ -14,7 +14,6 @@ public class ProductHandlerCreate {
 	private ProductFactory productFactory;
 
 	public ProductHandlerCreate(ProductService productService, ProductFactory productFactory) {
-		super();
 		this.productService = productService;
 		this.productFactory = productFactory;
 	}

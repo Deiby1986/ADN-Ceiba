@@ -14,7 +14,6 @@ public class SalesHeaderService {
 	private SalesHeaderRepository repository;
 
 	public SalesHeaderService(SalesHeaderRepository repository) {
-		super();
 		this.repository = repository;
 	}
 	

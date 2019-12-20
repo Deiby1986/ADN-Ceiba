@@ -13,6 +13,7 @@ public class SalesDetailService {
 	}
 	
 	public SalesDetail execute(SalesDetail d) {
+		d.getProduct().setQty(d.getProduct().getQty()-d.getQtyPurchased());
 		return repository.save(d);
 	}
 	

@@ -10,7 +10,6 @@ public class ProductTestDataBuilder {
 	private Double price;
 	
 	public ProductTestDataBuilder() {
-		super();
 		this.id = 0L;
 		this.codigo = "PR001";
 		this.nombre = "Producto Prueba";

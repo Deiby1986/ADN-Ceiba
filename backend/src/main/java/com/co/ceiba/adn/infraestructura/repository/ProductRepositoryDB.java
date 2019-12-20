@@ -14,29 +14,28 @@ import com.co.ceiba.adn.infraestructura.dao.ProductDao;
 public class ProductRepositoryDB implements ProductRepository {	
 	
 	
-	ProductDao rep;	
+	ProductDao productRepository;	
 
 	public ProductRepositoryDB(ProductDao rep) {
-		super();
-		this.rep = rep;
+		this.productRepository = rep;
 	}	
 
 	@Override
 	public List<ProductDto> findAllAsDto() {
-		return rep.findAll().stream().map(product -> new ProductDto(product.getId(),product.getCodigo(),product.getNombre(),product.getPrice() ,product.getQty()))
+		return productRepository.findAll().stream().map(product -> new ProductDto(product.getId(),product.getCodigo(),product.getNombre(),product.getPrice() ,product.getQty()))
 				 .collect(Collectors.toList());
 	}
 	
 
 	@Override
 	public Product findByCode(String code) {		
-		return rep.findByCode(code);
+		return productRepository.findByCode(code);
 	}	
 	
 
 	@Override
-	public Product save(Product p) {
-		return rep.save(p);
+	public Product save(Product product) {
+		return productRepository.save(product);
 	}
 
 	

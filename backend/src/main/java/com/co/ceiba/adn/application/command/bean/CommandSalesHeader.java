@@ -18,7 +18,6 @@ public class CommandSalesHeader {
 
 	public CommandSalesHeader(Long id, String nombreCliente, String fecha, Double total,
 			List<CommandSalesDetail> detalles) {
-		super();
 		this.id = id;
 		this.nombreCliente = nombreCliente;
 		this.fecha = fecha;

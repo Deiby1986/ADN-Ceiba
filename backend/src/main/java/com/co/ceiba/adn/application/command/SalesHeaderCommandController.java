@@ -18,7 +18,6 @@ public class SalesHeaderCommandController {
 	
 	
 	public SalesHeaderCommandController(SalesHeaderHandleCreate service) {
-		super();
 		this.service = service;
 	}
 

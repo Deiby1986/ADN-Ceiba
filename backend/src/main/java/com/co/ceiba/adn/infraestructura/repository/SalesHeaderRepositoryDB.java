@@ -16,7 +16,6 @@ public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 	SalesHeaderDao salesDao;	
 
 	public SalesHeaderRepositoryDB(SalesHeaderDao salesDao) {
-		super();
 		this.salesDao = salesDao;
 	}	
 

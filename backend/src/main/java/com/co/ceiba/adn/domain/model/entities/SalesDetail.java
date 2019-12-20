@@ -38,7 +38,6 @@ public class SalesDetail {
 	private Long total;
 
 	public SalesDetail(SalesHeader header, Product product, Long qtyPurchased, Long total) {
-		super();
 		if(header == null)
 			throw new FieldEmptyOrNullException("Se debe especificar el header");
 		if(product == null)

@@ -17,7 +17,6 @@ public class SalesHeaderHandleCreate {
 	private SalesHeaderFactory factoryHeader;
 	SalesDetailHandleCreate detailCreate;
 	public SalesHeaderHandleCreate(SalesHeaderService service, SalesHeaderFactory factory,SalesDetailHandleCreate detailCreate) {
-		super();
 		this.service = service;
 		this.factoryHeader = factory;
 		this.detailCreate = detailCreate;

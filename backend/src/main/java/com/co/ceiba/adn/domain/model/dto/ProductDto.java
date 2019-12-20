@@ -14,7 +14,6 @@ public class ProductDto {
 	private Long qty;	
 	
 	public ProductDto(Long id, String codigo, String nombre,Double price, Long qty) {
-		super();
 		this.id = id;
 		this.codigo = codigo;
 		this.nombre = nombre;
