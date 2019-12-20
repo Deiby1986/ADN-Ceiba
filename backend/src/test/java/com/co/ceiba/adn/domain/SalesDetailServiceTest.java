@@ -13,7 +13,7 @@ import com.co.ceiba.adn.infraestructura.repository.SalesDetailRepositoryDB;
 public class SalesDetailServiceTest {
 	
 	@Test
-	public void testSavingProductNull() {
+	public void testSavingDetail() {
 		SalesDetail detail = new SalesDetailTestDataBuilder().build();
 		SalesDetailRepositoryDB repository = Mockito.mock(SalesDetailRepositoryDB.class);
 		Mockito.when(repository.save(detail)).thenReturn(detail);
