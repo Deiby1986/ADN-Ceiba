@@ -13,11 +13,11 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/sales")
-public class SalesHeaderQuery {
+public class SalesHeaderQueryController {
 	
 	SalesHeaderHandleQuery handler;
 
-	public SalesHeaderQuery(SalesHeaderHandleQuery handler) {
+	public SalesHeaderQueryController(SalesHeaderHandleQuery handler) {
 		this.handler = handler;
 	}	
 	

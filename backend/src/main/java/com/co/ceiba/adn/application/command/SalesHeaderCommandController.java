@@ -13,11 +13,11 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/sales")
 
-public class SalesHeaderCommand {
+public class SalesHeaderCommandController {
 	private SalesHeaderHandleCreate service;
 	
 	
-	public SalesHeaderCommand(SalesHeaderHandleCreate service) {
+	public SalesHeaderCommandController(SalesHeaderHandleCreate service) {
 		super();
 		this.service = service;
 	}

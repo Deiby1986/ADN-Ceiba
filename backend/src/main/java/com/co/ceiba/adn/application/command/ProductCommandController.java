@@ -13,11 +13,11 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/products")
 
-public class ProductCommand {
+public class ProductCommandController {
 	
 	ProductHandlerCreate service;	
 	
-	public ProductCommand(ProductHandlerCreate service) {	
+	public ProductCommandController(ProductHandlerCreate service) {	
 		this.service = service;
 	}
 	
