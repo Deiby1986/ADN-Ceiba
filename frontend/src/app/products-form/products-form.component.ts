@@ -27,8 +27,8 @@ export class ProductsFormComponent implements OnInit {
       id:[this.product.id,''],
       codigo:[this.product.codigo,Validators.required],
       nombre:[this.product.nombre,Validators.required],
-      precio:[this.product.price,Validators.required],
-      cantidad:[this.product.qty,Validators.required],
+      precio:[this.product.price==0?'':this.product.price,Validators.required],
+      cantidad:[this.product.qty==0?'':this.product.qty,Validators.required],
     })
   }
 
