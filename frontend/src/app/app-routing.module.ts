@@ -1,19 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {ProductsComponent} from './products/products.component';
-import {SalesComponent} from './sales/sales.component'
-import {ProductsFormComponent} from './products-form/products-form.component'
-import { SalesFormComponent } from './sales-form/sales-form.component';
+
 
 
 
 const routes: Routes = [
-  {path:'sales',component:SalesComponent},
-  {path:'sale',component:SalesFormComponent},
-  {path:'sale/:id',component:SalesFormComponent},
-  {path:'products',component:ProductsComponent},
-  {path:'product',component:ProductsFormComponent}
+  {
+    path:'sales',
+    loadChildren: "./sales/sales.module#SalesModule"
+  },
+  {
+    path:'sale',
+    loadChildren: "./sales-form/sales-form.module#SalesFormModule"
+  },
+ 
+  {
+    path:'products',
+    loadChildren: "./products/products.module#ProductsModule"
+  },
+  {
+    path:'product',
+    loadChildren: "./products-form/products-form.module#ProductsFormModule"
+  }
 ];
 
 @NgModule({
