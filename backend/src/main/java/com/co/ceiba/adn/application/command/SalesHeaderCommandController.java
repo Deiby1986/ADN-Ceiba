@@ -24,7 +24,7 @@ public class SalesHeaderCommandController {
 
 	@PostMapping
 	@ApiOperation("/addProduct")
-	public void addSales(@RequestBody CommandSalesHeader sales){
+	public void add(@RequestBody CommandSalesHeader sales){
 		serviceSalesHandle.save(sales);
 	}
 	

@@ -18,9 +18,9 @@ public class ProductHandlerCreate {
 		this.productFactory = productFactory;
 	}
 
-	public void save(CommandProduct p) {	
-		Product pr =productFactory.create(p);
-		productService.execute(pr);		
+	public void save(CommandProduct productCommand) {	
+		Product product =productFactory.create(productCommand);
+		productService.execute(product);		
 	}
 	
 	

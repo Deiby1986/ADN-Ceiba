@@ -23,7 +23,7 @@ public class ProductCommandController {
 	
 	@PostMapping
 	@ApiOperation("/addProduct")
-	public void addProduct(@RequestBody CommandProduct productCommand){				
+	public void add(@RequestBody CommandProduct productCommand){				
 		serviceProduct.save(productCommand);
 	}
 

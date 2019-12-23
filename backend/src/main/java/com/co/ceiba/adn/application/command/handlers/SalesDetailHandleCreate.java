@@ -17,9 +17,9 @@ public class SalesDetailHandleCreate {
 		this.detailFactory = factory;
 	}
 	
-	public void save(CommandSalesDetail detail) {
-		SalesDetail det = detailFactory.create(detail);
-		detailService.execute(det);
+	public void save(CommandSalesDetail commandDetail) {
+		SalesDetail detail = detailFactory.create(commandDetail);
+		detailService.execute(detail);
 	}
 	
 	

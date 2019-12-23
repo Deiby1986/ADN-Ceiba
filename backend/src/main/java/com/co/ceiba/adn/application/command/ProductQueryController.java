@@ -24,7 +24,7 @@ public class ProductQueryController {
 	
 	@GetMapping
 	@ApiOperation("/list")
-	public List<ProductDto> listar(){
+	public List<ProductDto> list(){
 		return productQueryHandler.list();
 	}
 	 

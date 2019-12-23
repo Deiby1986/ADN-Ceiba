@@ -23,7 +23,7 @@ public class SalesHeaderQueryController {
 	
 	@GetMapping
 	@ApiOperation("/list")
-	public List<SalesHeaderDto> listar(){
+	public List<SalesHeaderDto> list(){
 		return salesHeaderHandler.list();
 	}
 
