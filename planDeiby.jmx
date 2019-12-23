@@ -130,13 +130,12 @@
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="3045754">caea</stringProp>
+              <stringProp name="34624981">&quot;id&quot;:</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
-            <intProp name="Assertion.test_type">2</intProp>
-            <stringProp name="Assertion.scope">all</stringProp>
+            <intProp name="Assertion.test_type">48</intProp>
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
@@ -232,6 +231,16 @@
             </objProp>
             <stringProp name="filename"></stringProp>
           </ResultCollector>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="34624981">&quot;id&quot;:</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">48</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Crear producto" enabled="true">
@@ -354,7 +363,7 @@
 	&quot;detalles&quot;:[&#xd;
 					{&#xd;
 						&quot;idHeader&quot;:0,&#xd;
-						&quot;idProduct&quot;: 17,&#xd;
+						&quot;idProduct&quot;: 40,&#xd;
 						&quot;qtyPurchased&quot;:1,&#xd;
 						&quot;total&quot;:100&#xd;
 					}&#xd;
