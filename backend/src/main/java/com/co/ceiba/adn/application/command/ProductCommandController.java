@@ -15,16 +15,16 @@ import io.swagger.annotations.ApiOperation;
 
 public class ProductCommandController {
 	
-	ProductHandlerCreate service;	
+	ProductHandlerCreate serviceProduct;	
 	
-	public ProductCommandController(ProductHandlerCreate service) {	
-		this.service = service;
+	public ProductCommandController(ProductHandlerCreate serviceProduct) {	
+		this.serviceProduct = serviceProduct;
 	}
 	
 	@PostMapping
 	@ApiOperation("/addProduct")
-	public void addProduct(@RequestBody CommandProduct pr){				
-		service.save(pr);
+	public void addProduct(@RequestBody CommandProduct productCommand){				
+		serviceProduct.save(productCommand);
 	}
 
 }

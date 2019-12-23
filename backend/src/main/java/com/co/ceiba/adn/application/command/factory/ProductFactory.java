@@ -8,8 +8,8 @@ import com.co.ceiba.adn.domain.model.entities.Product;
 @Component
 public class ProductFactory {
 	
-	public Product createProducto(CommandProduct pr) {
-		return new Product(pr.getId(),pr.getCodigo(), pr.getNombre(), pr.getQty(),pr.getPrice());		
+	public Product create(CommandProduct productCommand) {
+		return new Product(productCommand.getId(),productCommand.getCodigo(), productCommand.getNombre(), productCommand.getQty(),productCommand.getPrice());		
 	}
 
 }

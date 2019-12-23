@@ -14,18 +14,18 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api/sales")
 
 public class SalesHeaderCommandController {
-	private SalesHeaderHandleCreate service;
+	private SalesHeaderHandleCreate serviceSalesHandle;
 	
 	
 	public SalesHeaderCommandController(SalesHeaderHandleCreate service) {
-		this.service = service;
+		this.serviceSalesHandle = service;
 	}
 
 
 	@PostMapping
 	@ApiOperation("/addProduct")
 	public void addSales(@RequestBody CommandSalesHeader sales){
-		service.save(sales);
+		serviceSalesHandle.save(sales);
 	}
 	
 }

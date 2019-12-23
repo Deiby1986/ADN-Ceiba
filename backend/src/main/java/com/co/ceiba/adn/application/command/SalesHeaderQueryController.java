@@ -15,16 +15,16 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api/sales")
 public class SalesHeaderQueryController {
 	
-	SalesHeaderHandleQuery handler;
+	SalesHeaderHandleQuery salesHeaderHandler;
 
 	public SalesHeaderQueryController(SalesHeaderHandleQuery handler) {
-		this.handler = handler;
+		this.salesHeaderHandler = handler;
 	}	
 	
 	@GetMapping
 	@ApiOperation("/list")
 	public List<SalesHeaderDto> listar(){
-		return handler.list();
+		return salesHeaderHandler.list();
 	}
 
 }

@@ -16,16 +16,16 @@ import io.swagger.annotations.ApiOperation;
 
 public class ProductQueryController {
 	
-	ProductHandleQuery handler;
+	ProductHandleQuery productQueryHandler;
 
 	public ProductQueryController(ProductHandleQuery handler) {		
-		this.handler = handler;
+		this.productQueryHandler = handler;
 	}
 	
 	@GetMapping
 	@ApiOperation("/list")
 	public List<ProductDto> listar(){
-		return handler.list();
+		return productQueryHandler.list();
 	}
 	 
 

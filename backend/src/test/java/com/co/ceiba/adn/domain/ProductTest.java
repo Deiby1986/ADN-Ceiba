@@ -18,19 +18,22 @@ public class ProductTest {
 	
 	@Test
 	public void testProductCodeNull() {		
-			ProductTestDataBuilder builder = new ProductTestDataBuilder();			
+			ProductTestDataBuilder builder = new ProductTestDataBuilder();	
+			
 			assertThrows(FieldEmptyOrNullException.class,()->builder.withCode(null).build());	
 	}
 	
 	@Test
 	public void testProductCodeLength() {		
-			ProductTestDataBuilder builder = new ProductTestDataBuilder();			
+			ProductTestDataBuilder builder = new ProductTestDataBuilder();		
+			
 			assertThrows(FieldLengthException.class,()->builder.withCode("123").build());	
 	}
 	
 	@Test
 	public void testProductNameNull() {		
-			ProductTestDataBuilder builder = new ProductTestDataBuilder();			
+			ProductTestDataBuilder builder = new ProductTestDataBuilder();	
+			
 			assertThrows(FieldEmptyOrNullException.class,()->builder.withName(null).build());	
 	}
 	

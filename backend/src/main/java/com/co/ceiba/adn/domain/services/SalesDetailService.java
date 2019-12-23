@@ -6,15 +6,15 @@ import com.co.ceiba.adn.domain.repository.SalesDetailRepository;
 
 public class SalesDetailService {
 	
-	private SalesDetailRepository repository;
+	private SalesDetailRepository detailRepository;
 
 	public SalesDetailService(SalesDetailRepository repository) {		
-		this.repository = repository;
+		this.detailRepository = repository;
 	}
 	
 	public SalesDetail execute(SalesDetail d) {
 		d.getProduct().setQty(d.getProduct().getQty()-d.getQtyPurchased());
-		return repository.save(d);
+		return detailRepository.save(d);
 	}
 	
 	

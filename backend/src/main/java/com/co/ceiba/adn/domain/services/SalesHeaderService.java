@@ -11,10 +11,10 @@ import com.co.ceiba.adn.domain.repository.SalesHeaderRepository;
 
 public class SalesHeaderService {
 	
-	private SalesHeaderRepository repository;
+	private SalesHeaderRepository headerRepository;
 
 	public SalesHeaderService(SalesHeaderRepository repository) {
-		this.repository = repository;
+		this.headerRepository = repository;
 	}
 	
 	public SalesHeader execute(SalesHeader header) {
@@ -22,7 +22,7 @@ public class SalesHeaderService {
 			throw new InvalidDateException("Especifique la fecha en formato dd/mm/yyyy");
 		if(!canSale(header))
 			throw new CanSellOnWekendsException("No se puede vender los fines de semana");
-		return repository.save(header);
+		return headerRepository.save(header);
 	}
 	
 	public boolean canSale(SalesHeader header) {

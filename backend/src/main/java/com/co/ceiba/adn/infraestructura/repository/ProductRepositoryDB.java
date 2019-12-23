@@ -16,8 +16,8 @@ public class ProductRepositoryDB implements ProductRepository {
 	
 	ProductDao productRepository;	
 
-	public ProductRepositoryDB(ProductDao rep) {
-		this.productRepository = rep;
+	public ProductRepositoryDB(ProductDao productRepository) {
+		this.productRepository = productRepository;
 	}	
 
 	@Override

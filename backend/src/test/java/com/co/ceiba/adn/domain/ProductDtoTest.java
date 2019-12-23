@@ -22,9 +22,11 @@ import com.co.ceiba.adn.domain.model.entities.Product;
 public class ProductDtoTest {
 	
 	@Test
-	public void testProductDto() {		
+	public void testProductDtoPrice() {		
 		ProductDtoTestDataBuilder builder = new ProductDtoTestDataBuilder();
+		
 		ProductDto product=  builder.build();
+		
 		assertNotEquals(0, product.getPrice());	
 	}
 	

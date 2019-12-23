@@ -12,18 +12,21 @@ public class SalesHeaderDtoTest {
 	@Test
 	public void testSalesHeaderWithNameNull() {
 		SalesHeaderTestDataBuilder builder = new SalesHeaderTestDataBuilder();
+		
 		assertThrows(FieldEmptyOrNullException.class,()-> builder.withName(null).build());
 	}
 	
 	@Test
 	public void testSalesHeaderWithDateNull() {
 		SalesHeaderTestDataBuilder builder = new SalesHeaderTestDataBuilder();
+		
 		assertThrows(FieldEmptyOrNullException.class,()-> builder.withDate(null).build());
 	}
 	
 	@Test
 	public void testSalesHeaderWithTotalNull() {
 		SalesHeaderTestDataBuilder builder = new SalesHeaderTestDataBuilder();
+		
 		assertThrows(FieldEmptyOrNullException.class,()-> builder.withTotal(null).build());
 	}
 

@@ -8,7 +8,7 @@ import com.co.ceiba.adn.domain.model.entities.SalesHeader;
 @Component
 public class SalesHeaderFactory {
 	
-	public SalesHeader createSalesHeader(CommandSalesHeader header) {
+	public SalesHeader create(CommandSalesHeader header) {
 		return new SalesHeader(header.getNombreCliente(), header.getFecha(), header.getTotal());		
 	}
 

@@ -10,14 +10,14 @@ import com.co.ceiba.adn.infraestructura.repository.SalesHeaderRepositoryDB;
 @Component
 public class SalesHeaderHandleQuery {
 	
-	private SalesHeaderRepositoryDB repository;
+	private SalesHeaderRepositoryDB headerRepository;
 
 	public SalesHeaderHandleQuery(SalesHeaderRepositoryDB repository) {
-		this.repository = repository;
+		this.headerRepository = repository;
 	}
 	
 	public List<SalesHeaderDto> list(){
-		return repository.findAllAsDto();
+		return headerRepository.findAllAsDto();
 	}
 
 }

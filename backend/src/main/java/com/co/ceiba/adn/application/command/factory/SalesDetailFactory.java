@@ -16,7 +16,7 @@ public class SalesDetailFactory {
 	ProductDao daoProducto;
 	@Autowired 
 	SalesHeaderDao daoHeader;
-	public SalesDetail createSalesDetail(CommandSalesDetail detail) {
+	public SalesDetail create(CommandSalesDetail detail) {
 		
 		SalesHeader header=daoHeader.findById(detail.getIdHeader()).orElse(null);
 		Product pr = daoProducto.findById(detail.getIdProduct()).orElse(null);	

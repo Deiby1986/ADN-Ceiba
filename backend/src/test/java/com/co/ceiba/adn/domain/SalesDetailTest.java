@@ -14,18 +14,21 @@ public class SalesDetailTest {
 	@Test
 	public void testSalesDetailHeaderNull() {
 		SalesDetailTestDataBuilder builder = new SalesDetailTestDataBuilder();
+		
 		assertThrows(FieldEmptyOrNullException.class, ()->builder.withHeader(null).build());		
 	}
 	
 	@Test
 	public void testSalesDetailProductNull() {
 		SalesDetailTestDataBuilder builder = new SalesDetailTestDataBuilder();
+		
 		assertThrows(FieldEmptyOrNullException.class, ()->builder.withProduct(null).build());		
 	}
 	
 	@Test
 	public void testSalesDetailQtyZero() {
 		SalesDetailTestDataBuilder builder = new SalesDetailTestDataBuilder();
+		
 		assertThrows(FieldEmptyOrNullException.class, ()->builder.withQtyPurchased(0L).build());		
 	}	
 

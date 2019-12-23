@@ -10,16 +10,16 @@ import com.co.ceiba.adn.domain.services.SalesDetailService;
 @Component
 public class SalesDetailHandleCreate {
 
-	private SalesDetailService service;
-	private SalesDetailFactory factory;
+	private SalesDetailService detailService;
+	private SalesDetailFactory detailFactory;
 	public SalesDetailHandleCreate(SalesDetailService service, SalesDetailFactory factory) {		
-		this.service = service;
-		this.factory = factory;
+		this.detailService = service;
+		this.detailFactory = factory;
 	}
 	
 	public void save(CommandSalesDetail detail) {
-		SalesDetail det = factory.createSalesDetail(detail);
-		service.execute(det);
+		SalesDetail det = detailFactory.create(detail);
+		detailService.execute(det);
 	}
 	
 	

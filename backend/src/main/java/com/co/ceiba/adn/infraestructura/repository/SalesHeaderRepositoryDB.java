@@ -13,19 +13,19 @@ import com.co.ceiba.adn.infraestructura.dao.SalesHeaderDao;
 @Component
 public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 
-	SalesHeaderDao salesDao;	
+	SalesHeaderDao salesHeaderRepository;	
 
-	public SalesHeaderRepositoryDB(SalesHeaderDao salesDao) {
-		this.salesDao = salesDao;
+	public SalesHeaderRepositoryDB(SalesHeaderDao repository) {
+		this.salesHeaderRepository = repository;
 	}	
 
 	@Override
-	public SalesHeader save(SalesHeader p) {		
-		return salesDao.save(p);
+	public SalesHeader save(SalesHeader header) {		
+		return salesHeaderRepository.save(header);
 	}	
 	
 	public List<SalesHeaderDto> findAllAsDto(){		
-		return salesDao.findAll().stream().map(header -> new SalesHeaderDto(header.getId(), header.getClientName(), header.getDate(), header.getTotal())).collect(Collectors.toList());
+		return salesHeaderRepository.findAll().stream().map(header -> new SalesHeaderDto(header.getId(), header.getClientName(), header.getDate(), header.getTotal())).collect(Collectors.toList());
 	}
 
 

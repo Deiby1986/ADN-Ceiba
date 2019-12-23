@@ -18,7 +18,9 @@ public class SalesDetailServiceTest {
 		SalesDetailRepositoryDB repository = Mockito.mock(SalesDetailRepositoryDB.class);
 		Mockito.when(repository.save(detail)).thenReturn(detail);
 		SalesDetailService service = new SalesDetailService(repository);
+		
 		SalesDetail savedDetail = service.execute(detail);
+		
 		assertTrue(detail.getHeader().equals(savedDetail.getHeader()));
 	}	
 	

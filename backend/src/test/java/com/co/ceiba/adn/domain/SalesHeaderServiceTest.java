@@ -21,7 +21,9 @@ public class SalesHeaderServiceTest {
 		SalesHeaderRepositoryDB salesHeaderRepo = Mockito.mock(SalesHeaderRepositoryDB.class);
 		Mockito.when(salesHeaderRepo.save(header)).thenReturn(header);
 		SalesHeaderService headerService = new SalesHeaderService(salesHeaderRepo);
+		
 		SalesHeader headerSaved = headerService.execute(header);
+		
 		assertTrue(header.getTotal().equals(headerSaved.getTotal()));
 	}
 	
@@ -30,6 +32,7 @@ public class SalesHeaderServiceTest {
 		SalesHeader header = new SalesHeaderTestDataBuilder().withDate("2019-01-04").build();
 		SalesHeaderRepositoryDB salesHeaderRepo = Mockito.mock(SalesHeaderRepositoryDB.class);
 		Mockito.when(salesHeaderRepo.save(header)).thenReturn(header);
+		
 		SalesHeaderService headerService = new SalesHeaderService(salesHeaderRepo);
 		assertThrows(InvalidDateException.class, ()->headerService.execute(header));
 		

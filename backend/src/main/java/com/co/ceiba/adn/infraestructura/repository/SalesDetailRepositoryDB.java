@@ -11,21 +11,21 @@ import com.co.ceiba.adn.infraestructura.dao.SalesDetailDao;
 @Component
 public class SalesDetailRepositoryDB implements SalesDetailRepository{
 
-	SalesDetailDao detailDao;
+	SalesDetailDao detailRepository;
 	
 	
-	public SalesDetailRepositoryDB(SalesDetailDao detailDao) {		
-		this.detailDao = detailDao;
+	public SalesDetailRepositoryDB(SalesDetailDao repository) {		
+		this.detailRepository = repository;
 	}
 
 	@Override
 	public List<SalesDetail> findAll() {		
-		return detailDao.findAll();
+		return detailRepository.findAll();
 	}
 
 	@Override
-	public SalesDetail save(SalesDetail p) {		
-		return detailDao.save(p);
+	public SalesDetail save(SalesDetail detail) {		
+		return detailRepository.save(detail);
 	}
 
 }

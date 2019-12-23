@@ -13,18 +13,18 @@ import com.co.ceiba.adn.domain.services.SalesHeaderService;
 @Component
 public class SalesHeaderHandleCreate {
 	
-	private SalesHeaderService service;	
-	private SalesHeaderFactory factoryHeader;
-	SalesDetailHandleCreate detailCreate;
+	private SalesHeaderService headerService;	
+	private SalesHeaderFactory headerFactory;
+	SalesDetailHandleCreate detailHandler;
 	public SalesHeaderHandleCreate(SalesHeaderService service, SalesHeaderFactory factory,SalesDetailHandleCreate detailCreate) {
-		this.service = service;
-		this.factoryHeader = factory;
-		this.detailCreate = detailCreate;
+		this.headerService = service;
+		this.headerFactory = factory;
+		this.detailHandler = detailCreate;
 	}
 	
 	public void save(CommandSalesHeader command) {
-		SalesHeader headerTosave = factoryHeader.createSalesHeader(command);
-		SalesHeader header = service.execute(headerTosave);
+		SalesHeader headerTosave = headerFactory.create(command);
+		SalesHeader header = headerService.execute(headerTosave);
 		List<CommandSalesDetail> details =  command.getDetalles();	
 		saveDetails(details, header);
 	}
@@ -35,7 +35,7 @@ public class SalesHeaderHandleCreate {
 		for (int i = 0; i < details.size(); i++) {
 			CommandSalesDetail det = details.get(i);
 			det.setIdHeader(header.getId());
-		 	detailCreate.save(det);			
+		 	detailHandler.save(det);			
 		}
 	}
 	

@@ -16,7 +16,9 @@ public class SalesHeaderTest {
 	@Test
 	public void testSalesHeaderDto() {
 		SalesHeaderDtoTestDataBuilder builder = new SalesHeaderDtoTestDataBuilder();
+		
 		SalesHeaderDto header=  builder.build();
+		
 		assertNotEquals(0, header.getTotal());
 	}
 	
