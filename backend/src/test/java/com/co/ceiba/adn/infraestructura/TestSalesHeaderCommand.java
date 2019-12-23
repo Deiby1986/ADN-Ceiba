@@ -2,6 +2,7 @@ package com.co.ceiba.adn.infraestructura;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
@@ -51,7 +52,9 @@ public class TestSalesHeaderCommand {
 		
 		mockMvc.perform(post("/api/sales").
 							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk());
+							content(objetcMapper.writeValueAsString(salesCommand))).
+							andExpect(status().isOk())
+							.andExpect(content().string(""));
 	}
 	
 	@Test
@@ -59,9 +62,18 @@ public class TestSalesHeaderCommand {
 		CommandSalesDetailDataBuilder detailBuilder = new CommandSalesDetailDataBuilder();
 		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetails(detailBuilder.build()).build();		
 		
+		CommandProduct prCommand= new CommandProductDataBuilder().build();		
+		
+		mockMvc.perform(post("/api/products").
+							contentType(MediaType.APPLICATION_JSON).
+							content(objetcMapper.writeValueAsString(prCommand))).
+							andExpect(status().isOk());
+		
 		mockMvc.perform(post("/api/sales").
 							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk());
+							content(objetcMapper.writeValueAsString(salesCommand))).
+							andExpect(status().isOk()).
+							andExpect(content().string(""));
 	}
 	
 	@Test
@@ -70,7 +82,9 @@ public class TestSalesHeaderCommand {
 		
 		mockMvc.perform(get("/api/sales").
 							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk());
+							content(objetcMapper.writeValueAsString(salesCommand))).
+							andExpect(status().isOk()).
+							andExpect(content().json("[]"));
 	}
 		
 		

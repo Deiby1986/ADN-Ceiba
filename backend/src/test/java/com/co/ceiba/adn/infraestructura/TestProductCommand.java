@@ -1,7 +1,10 @@
 package com.co.ceiba.adn.infraestructura;
 
+import static org.mockito.Matchers.contains;
+import static org.mockito.Matchers.startsWith;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
@@ -13,6 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -48,7 +53,9 @@ public class TestProductCommand {
 		
 		mockMvc.perform(post("/api/products").
 							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(prCommand))).andExpect(status().isOk());
+							content(objetcMapper.writeValueAsString(prCommand))).
+							andExpect(status().isOk())
+							.andExpect(content().string(""));
 		
 		
 	}
@@ -57,9 +64,14 @@ public class TestProductCommand {
 	public void listProducts() throws JsonProcessingException, Exception{
 		CommandProduct prCommand= new CommandProductDataBuilder().build();		
 		
-		mockMvc.perform(get("/api/products").
+		 mockMvc.perform(get("/api/products").
 							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(prCommand))).andExpect(status().isOk());
+							content(objetcMapper.writeValueAsString(prCommand))).
+							andExpect(status().isOk()).
+							andExpect(content().json("[]"));		
+	
+		
+		
 		
 		
 	}
