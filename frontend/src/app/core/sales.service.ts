@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Salesheader } from 'src/app/models/salesheader';
+import { Salesheader } from 'src/app/sales/shared/salesheader';
 import { environment } from 'src/app/helpers/enviroment';
 import { map } from 'rxjs/operators';
 

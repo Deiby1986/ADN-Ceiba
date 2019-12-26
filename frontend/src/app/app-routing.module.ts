@@ -7,21 +7,25 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path:'home',
+    loadChildren: "./home/home.module#HomeModule"
+  },
+  {
     path:'sales',
-    loadChildren: "./sales/sales.module#SalesModule"
+    loadChildren: "./sales/sales-list/sales.module#SalesListModule"
   },
   {
     path:'sale',
-    loadChildren: "./sales-form/sales-form.module#SalesFormModule"
+    loadChildren: "./sales/sales-form/sales-form.module#SalesFormModule"
   },
  
   {
     path:'products',
-    loadChildren: "./products/products.module#ProductsModule"
+    loadChildren: "./products/products-list/products.module#ProductsListModule"
   },
   {
     path:'product',
-    loadChildren: "./products-form/products-form.module#ProductsFormModule"
+    loadChildren: "./products/products-form/products-form.module#ProductsFormModule"
   }
 ];
 

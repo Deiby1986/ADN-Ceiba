@@ -25,11 +25,8 @@ export class TrmService {
   }
   getTrm() {
     console.log("Se va obetener la trm");
-    this.http.get<string>(this.urlTrm).subscribe( data => {
-      this.value = data["data"]["value"];
-      console.log('Respuesta :'+this.value);            
-    });   
-    return this.value;
+   return this.http.get<string>(this.urlTrm);   
+   // return this.value;
 
   }
 }

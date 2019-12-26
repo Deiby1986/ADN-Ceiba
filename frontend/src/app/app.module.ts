@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ProductsServiceService} from './services/products/products-service.service';
+import {ProductsService} from './core/products.service';
 import {HttpClientModule} from '@angular/common/http'
 
 
@@ -26,12 +26,10 @@ import { DatePipe } from '@angular/common';
     FormsModule
   ],
   
-  providers: [ProductsServiceService,DatePipe],
+  providers: [ProductsService,DatePipe],
   bootstrap: [AppComponent]
 
 })
 export class AppModule {
-
-  
 
  }

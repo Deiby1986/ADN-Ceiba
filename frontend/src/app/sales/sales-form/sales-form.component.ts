@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductsServiceService } from '../services/products/products-service.service';
-import { Product } from '../models/product';
+import { ProductsService } from '../../core/products.service';
+import { Product } from '../../products/shared/product.model';
 import { Observable } from 'rxjs';
-import { Salesdetail } from '../models/salesdetail';
-import { SalesService } from '../services/sales/sales.service';
-import { Salesheader } from '../models/salesheader';
+import { Salesdetail } from '../shared/salesdetail';
+import { SalesService } from '../../core/sales.service';
+import { Salesheader } from '../shared/salesheader';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class SalesFormComponent implements OnInit {
     private datePipe: DatePipe,
     private router: Router,
     private route: ActivatedRoute,
-    private prService: ProductsServiceService,
+    private prService: ProductsService,
     private salesService: SalesService) { }
 
   ngOnInit() {

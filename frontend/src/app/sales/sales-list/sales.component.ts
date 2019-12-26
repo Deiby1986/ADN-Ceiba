@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SalesService } from '../services/sales/sales.service';
+import { SalesService } from '../../core/sales.service';
 import { Observable } from 'rxjs';
-import { Salesheader } from '../models/salesheader';
+import { Salesheader } from '../shared/salesheader';
 
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css']
 })
-export class SalesComponent implements OnInit {
+export class SalesListComponent implements OnInit {
 
   sales:Observable<Salesheader[]>;
   salesList:Salesheader[];

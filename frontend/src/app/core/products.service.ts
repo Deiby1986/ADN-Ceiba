@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/models/product';
+import { Product } from 'src/app/products/shared/product.model';
 import { environment } from 'src/app/helpers/enviroment';
 import { map } from 'rxjs/operators';
 
@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsServiceService {
+export class ProductsService {
   private currentProduct:Product;
   constructor(private http: HttpClient) {
   }
@@ -28,15 +28,11 @@ export class ProductsServiceService {
       }));
   }
 
-  seCurrentProduct(p:Product){
-    console.log("guardando producto");
-    console.log(p);
+  seCurrentProduct(p:Product){    
     this.currentProduct = p;
   }
 
   getCurrentProduct():Product{
-    console.log("obteniendo producto");
-    console.log(this.currentProduct);
     return this.currentProduct;
   }
 }

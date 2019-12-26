@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { ProductsServiceService } from '../services/products/products-service.service';
-import {Product} from '../models/product'
-import { TrmService } from '../services/trm/trm.service';
+import { ProductsService } from '../../core/products.service';
+import {Product} from '../shared/product.model'
+import { TrmService } from '../../core/trm.service';
 
 
 
@@ -13,13 +13,13 @@ import { TrmService } from '../services/trm/trm.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsListComponent implements OnInit {
   products : Observable<Product[]>;
   productsList : Product[];
   trm:Observable<string>;
   constructor( 
     private router: Router,
-    private prService:ProductsServiceService,
+    private prService:ProductsService,
     private trmService:TrmService) { }
 
   ngOnInit() {
