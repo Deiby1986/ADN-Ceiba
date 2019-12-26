@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../../core/products.service';
+import { ProductsService } from '../../products/shared/products.service';
 import { Product } from '../../products/shared/product.model';
 import { Observable } from 'rxjs';
 import { Salesdetail } from '../shared/salesdetail';
-import { SalesService } from '../../core/sales.service';
+import { SalesService } from '../shared/sales.service';
 import { Salesheader } from '../shared/salesheader';
 
 

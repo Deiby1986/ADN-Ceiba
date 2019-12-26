@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ProductsService} from './core/products.service';
+import {ProductsService} from './products/shared/products.service';
 import {HttpClientModule} from '@angular/common/http'
 
 

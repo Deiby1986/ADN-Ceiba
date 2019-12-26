@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SalesService } from '../../core/sales.service';
+import { SalesService } from '../shared/sales.service';
 import { Observable } from 'rxjs';
 import { Salesheader } from '../shared/salesheader';
 

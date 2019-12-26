@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrmService } from './core/trm.service';
+import { TrmService } from './share/trm.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-import { ProductsService } from '../../core/products.service';
+import { ProductsService } from '../shared/products.service';
 import {Product} from '../shared/product.model'
-import { TrmService } from '../../core/trm.service';
+import { TrmService } from '../../share/trm.service';
 
 
 
