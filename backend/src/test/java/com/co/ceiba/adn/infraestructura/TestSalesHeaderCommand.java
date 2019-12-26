@@ -64,10 +64,6 @@ public class TestSalesHeaderCommand {
 		
 		CommandProduct prCommand= new CommandProductDataBuilder().build();		
 		
-		mockMvc.perform(post("/api/products").
-							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(prCommand))).
-							andExpect(status().isOk());
 		
 		mockMvc.perform(post("/api/sales").
 							contentType(MediaType.APPLICATION_JSON).
