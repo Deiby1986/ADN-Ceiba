@@ -22,6 +22,7 @@ export class SalesFormComponent implements OnInit {
   products: Product[];
   sale: Salesheader;
   idSale: number;
+  private editSale:boolean
   private sub: any;
 
   constructor(
@@ -33,28 +34,46 @@ export class SalesFormComponent implements OnInit {
     private salesService: SalesService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.idSale = params["id"];
-      //this.id = +params['id']; 
-
-    });
-    if(this.idSale!=undefined)
-    console.log("Hay venta");
+  
+    this.sale = this.salesService.getCurrentSale();
+    
     this.orderForm = this.formBuilder.group({
-      cliente: '',
-      fecha: this.datePipe.transform(new Date(), "dd/MM/yyyy"),
-      total: '',
-      items: this.formBuilder.array([this.createItem()])
+      cliente: this.sale == null? '':new FormControl({ value: this.sale.nombreCliente, disabled: true }),
+      fecha: this.sale == null?this.datePipe.transform(new Date(), "dd/MM/yyyy"):this.sale.fecha,
+      total: this.sale == null?'':this.sale.total,
+      items: this.formBuilder.array([this.createItem(null)])
+    });  
+    
+    this.prService.getProducts().subscribe((products) => { 
+        this.products = products; 
+        if(this.sale!=null)
+          this.initItems(this.sale.details);
     });
-    this.prService.getProducts().subscribe((products) => { this.products = products; console.log(this.products); });
+    this.editSale = this.sale != null;
+    console.log("Editando venta : "+this.editSale);
   }
 
-  createItem(): FormGroup {
+  initItems(details:Salesdetail[]){
+   // let detail:any;
+    this.items = this.orderForm.get('items') as FormArray;    
+    this.items.clear();
+    details.forEach(detail=>{
+      console.log("detail");
+      console.log(detail);
+      this.items.push(this.createItem(detail));
+    }); 
+
+    this.items.at(0).get("producto").setValue("PRODUCTO PRUEBA", {onlySelf: true});
+    
+        
+  }
+
+  createItem(item:Salesdetail): FormGroup {
     return this.formBuilder.group({
-      producto: '',
-      cantidad: '1',
-      precio: new FormControl({ value: null, disabled: true }, Validators.required),
-      total: new FormControl({ value: 0, disabled: true }, Validators.required)
+      producto: item == null?'':new FormControl({ value: item.product, disabled: true }),
+      cantidad: item == null?'':new FormControl({ value: item.qtyPurchased, disabled: true }),
+      precio: item == null?0:new FormControl({ value: item .price, disabled: true }, Validators.required),
+      total: new FormControl({ value:  item == null?null:item.total, disabled: true }, Validators.required)
     });
   }
 
@@ -85,7 +104,7 @@ export class SalesFormComponent implements OnInit {
 
   addItem(): void {
     this.items = this.orderForm.get('items') as FormArray;
-    this.items.push(this.createItem());
+    this.items.push(this.createItem(null));
   }
 
   deleteItem(i: number): void {
@@ -105,7 +124,7 @@ export class SalesFormComponent implements OnInit {
       nombreCliente: this.orderForm.controls['cliente'].value,
       fecha: this.orderForm.controls['fecha'].value,
       total: this.orderForm.controls['total'].value,
-      detalles: this.getSaleDetails()
+      details: this.getSaleDetails()
     }
 
     console.log(header);
@@ -132,6 +151,8 @@ export class SalesFormComponent implements OnInit {
         id: 0,
         idHeader: 0,
         idProduct: pr.id,
+        product:'',
+        price:0,
         qtyPurchased: cantidad,
         total: subtotal
       });

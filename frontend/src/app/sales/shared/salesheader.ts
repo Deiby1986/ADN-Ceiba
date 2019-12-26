@@ -5,5 +5,5 @@ export class Salesheader {
 	public nombreCliente:string;
 	public fecha:string;	
 	public total:string;
-	public detalles :Salesdetail[];
+	public details :Salesdetail[];
 }

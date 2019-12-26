@@ -27,7 +27,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" id="cliente" name="cliente" formControlName="cliente" placeholder="Nombre del cliente">               
+                                        <input type="text" class="form-control" id="cliente" name="cliente" formControlName="cliente" placeholder="Nombre del cliente" >               
                                     </div>
                                 </div>
 
@@ -54,7 +54,7 @@
                                                     <td><input formControlName="cantidad" placeholder="Cantidad" (change)="calculate()" class="form-control"></td>
                                                     <td><input formControlName="precio" placeholder="Seleccione Producto" readonly class="form-control"></td>
                                                     <td><input formControlName="total" placeholder="Seleccione Producto" readonly class="form-control"></td>
-                                                    <td><button type="button" class="btn-alert" (click)="deleteItem(i)" name="cancelar">Eliminar</button></td>
+                                                    <td><button type="button" class="btn-alert" (click)="deleteItem(i)" name="cancelar" [disabled]="editSale">Eliminar</button></td>
                                                 </tr>
                                             </tbody>
                                             <tbody>
@@ -74,7 +74,7 @@
 
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-success " [disabled]="orderForm.invalid" name="guardar">Guardar</button>
+                                    <button type="submit" class="btn btn-success " [disabled]="editSale" name="guardar">Guardar</button>
                                     <button type="button" class="btn bg-light" (click)="cancel()" name="cancelar">Cancelar</button>
                                 </div>
                             </div>

@@ -22,7 +22,8 @@ export class SalesListComponent implements OnInit {
     this.sales = this.salesService.getSales();
     this.sales.subscribe(data=>{
       this.salesList = data as Salesheader[];      
-    })
+    });
+    this.salesService.setCurrentSale(null);
   }
 
   addVenta(){
@@ -31,8 +32,10 @@ export class SalesListComponent implements OnInit {
   }
 
   viewSale(id:number){
-    console.log("Viendo compra "+id);    
-    this.router.navigate(['/sale', id]);
+    console.log("Viendo compra index "+id);    
+    console.log("Viendo compra "+this.salesList[id]);
+    this.salesService.setCurrentSale(this.salesList[id]);
+    this.router.navigate(['/sale']);
   }
 
 }
