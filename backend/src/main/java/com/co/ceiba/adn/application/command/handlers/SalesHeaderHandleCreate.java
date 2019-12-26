@@ -25,7 +25,7 @@ public class SalesHeaderHandleCreate {
 	public void save(CommandSalesHeader command) {
 		SalesHeader headerTosave = headerFactory.create(command);
 		SalesHeader header = headerService.execute(headerTosave);
-		List<CommandSalesDetail> details =  command.getDetalles();	
+		List<CommandSalesDetail> details =  command.getDetails();	
 		saveDetails(details, header);
 	}
 	

@@ -10,19 +10,19 @@ public class CommandSalesHeader {
 	private String fecha;
 	private Double total;
 
-	private List<CommandSalesDetail> detalles;
+	private List<CommandSalesDetail> details;
 
 	public CommandSalesHeader() {
 
 	}
 
 	public CommandSalesHeader(Long id, String nombreCliente, String fecha, Double total,
-			List<CommandSalesDetail> detalles) {
+			List<CommandSalesDetail> details) {
 		this.id = id;
 		this.nombreCliente = nombreCliente;
 		this.fecha = fecha;
 		this.total = total;
-		setDetalles(detalles);
+		setDetails(details);
 	}
 
 	public Long getId() {
@@ -57,13 +57,13 @@ public class CommandSalesHeader {
 		this.total = total;
 	}
 
-	public List<CommandSalesDetail> getDetalles() {
-		return new ArrayList<>(detalles);
+	public List<CommandSalesDetail> getDetails() {
+		return new ArrayList<>(details);
 	}
 
-	public void setDetalles(List<CommandSalesDetail> detalles) {
-		this.detalles = new ArrayList<>();		
-		this.detalles.addAll(detalles);
+	public void setDetails(List<CommandSalesDetail> details) {
+		this.details = new ArrayList<>();		
+		this.details.addAll(details);
 	}
 
 }
