@@ -36,6 +36,9 @@ public class SalesDetail {
 	private Long qtyPurchased;
 	
 	private Long total;
+	
+	public SalesDetail() {		
+	}
 
 	public SalesDetail(SalesHeader header, Product product, Long qtyPurchased, Long total) {
 		if(header == null)

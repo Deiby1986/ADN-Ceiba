@@ -20,10 +20,8 @@ public class SalesHeaderServiceTest {
 		SalesHeader header = new SalesHeaderTestDataBuilder().build();
 		SalesHeaderRepositoryDB salesHeaderRepo = Mockito.mock(SalesHeaderRepositoryDB.class);
 		Mockito.when(salesHeaderRepo.save(header)).thenReturn(header);
-		SalesHeaderService headerService = new SalesHeaderService(salesHeaderRepo);
-		
-		SalesHeader headerSaved = headerService.execute(header);
-		
+		SalesHeaderService headerService = new SalesHeaderService(salesHeaderRepo);		
+		SalesHeader headerSaved = headerService.execute(header);		
 		assertTrue(header.getTotal().equals(headerSaved.getTotal()));
 	}
 	

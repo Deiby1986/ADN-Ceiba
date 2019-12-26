@@ -1,10 +1,16 @@
 package com.co.ceiba.adn.domain.model.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.co.ceiba.adn.domain.exceptions.FieldEmptyOrNullException;
@@ -27,6 +33,14 @@ public class SalesHeader {
 	private String date;
 	@Column(name = "total", nullable = false)
 	private Double total;
+	
+	@OneToMany(
+	        cascade = CascadeType.ALL,
+	        orphanRemoval = true,
+	        fetch = FetchType.EAGER
+	    )
+	@JoinColumn(name = "id_salesheader")
+	private List<SalesDetail> details; 
 	
 	public SalesHeader() {
 		
