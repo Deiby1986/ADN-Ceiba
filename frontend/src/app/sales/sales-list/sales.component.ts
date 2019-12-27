@@ -32,10 +32,9 @@ export class SalesListComponent implements OnInit {
   }
 
   viewSale(id:number){
-    console.log("Viendo compra index "+id);    
-    console.log("Viendo compra "+this.salesList[id]);
+   
     this.salesService.setCurrentSale(this.salesList[id]);
-    this.router.navigate(['/sale']);
+    this.router.navigate(['/sale-view']);
   }
 
 }

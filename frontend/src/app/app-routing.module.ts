@@ -18,6 +18,11 @@ const routes: Routes = [
     path:'sale',
     loadChildren: "./sales/sales-form/sales-form.module#SalesFormModule"
   },
+
+  {
+    path:'sale-view',
+    loadChildren: "./sales/sales-view/sales-view.module#SalesViewModule"
+  },
  
   {
     path:'products',
