@@ -33,7 +33,9 @@ public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 										detail.getHeader().getId(),
 										detail.getProduct().getNombre(),
 										detail.getQtyPurchased(),
+										detail.getProduct().getPrice(),
 										detail.getTotal()
+										
 									  ))
 									  .collect(Collectors.toList())
 				

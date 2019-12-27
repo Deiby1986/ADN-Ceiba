@@ -14,15 +14,20 @@ public class SalesDetailDto {
 	
 	private Long qtyPurchased;
 	
+	private Double price;
+	
 	private Long total;
 
-	public SalesDetailDto(Long id, Long header, String product, Long qtyPurchased, Long total) {
+	public SalesDetailDto(Long id,Long header, String product, Long qtyPurchased, Double price, Long total) {
 		this.id = id;
 		this.header = header;
 		this.product = product;
 		this.qtyPurchased = qtyPurchased;
+		this.price = price;
 		this.total = total;
 	}
+
+	
 	
 	
 	
