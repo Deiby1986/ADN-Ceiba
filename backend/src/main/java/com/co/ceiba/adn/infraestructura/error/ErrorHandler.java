@@ -11,7 +11,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(Exception.class)
     public final ResponseEntity<Error> handleAllException(Exception exception){
-		return new ResponseEntity<Error>(new Error(exception.getMessage(),exception.getClass().getSimpleName()),HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(new Error(exception.getMessage(),exception.getClass().getSimpleName()),HttpStatus.BAD_REQUEST);
 		
 	}
 
