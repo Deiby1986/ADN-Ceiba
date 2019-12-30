@@ -47,6 +47,7 @@ public class SalesDetailTest {
 		SalesDetailTestDataBuilder builder = new SalesDetailTestDataBuilder();
 		
 		assertThrows(NoStockAvailableForProduct.class, ()->builder.withProduct(product).withQtyPurchased(200L).build());
-	}	
+	}
+	
 
 }

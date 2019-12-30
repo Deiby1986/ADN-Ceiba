@@ -41,7 +41,7 @@ pipeline {
          sh 'gradle --b ./backend/build.gradle clean'
 
            echo "------------>Unit Tests<------------"
-           sh 'gradle --b ./backend/build.gradle test jacocoTestReport'
+           sh 'gradle --b ./backend/build.gradle test'
       }
     }
 
