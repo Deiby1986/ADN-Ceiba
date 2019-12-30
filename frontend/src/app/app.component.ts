@@ -16,10 +16,9 @@ export class AppComponent {
     private router: Router
   ) {
     this.trmService.getTrm().subscribe(data => {
-      this.trm = data["data"]["value"];
-      console.log('Respuesta :' + this.trm);
+      this.trm = data["data"]["value"];    
     });
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
 
   }
 

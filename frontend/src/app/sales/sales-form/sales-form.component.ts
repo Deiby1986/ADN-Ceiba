@@ -17,13 +17,12 @@ import { Salesheader } from '../shared/salesheader';
 })
 export class SalesFormComponent implements OnInit {
 
-  orderForm: FormGroup;
-  items: FormArray;
-  products: Product[];
-  sale: Salesheader;
-  idSale: number;
+  private orderForm: FormGroup;
+  private items: FormArray;
+  private products: Product[];
+  private sale: Salesheader;  
   private editSale:boolean
-  private sub: any;
+  private error:string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -131,7 +130,11 @@ export class SalesFormComponent implements OnInit {
     this.salesService.addSale(header).subscribe(data => {
       console.log(data);
       this.gotoSales();
-    });
+    },
+    error=>{
+      this.error = error.error.message;
+    }
+    );
   }
 
   getSaleDetails(): Salesdetail[] {

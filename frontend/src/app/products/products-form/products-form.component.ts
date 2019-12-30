@@ -13,52 +13,54 @@ export class ProductsFormComponent implements OnInit {
 
   product: Product;
   addProductForm: FormGroup;
+  error:string
 
-  constructor( private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private productService: ProductsService,
     private router: Router) { }
 
   ngOnInit() {
     this.product = this.productService.getCurrentProduct();
-    if(this.product == undefined || this.product.id == undefined)
-      this.product = {id:0,nombre:'',codigo:'',price:0,qty:0};
-    
+    this.error = "";
+    if (this.product == undefined || this.product.id == undefined)
+      this.product = { id: 0, nombre: '', codigo: '', price: 0, qty: 0 };
+
     this.addProductForm = this.formBuilder.group({
-      id:[this.product.id,''],
-      codigo:[this.product.codigo,Validators.required],
-      nombre:[this.product.nombre,Validators.required],
-      precio:[this.product.price==0?'':this.product.price,Validators.required],
-      cantidad:[this.product.qty==0?'':this.product.qty,Validators.required],
+      id: [this.product.id, ''],
+      codigo: [this.product.codigo, Validators.required],
+      nombre: [this.product.nombre, Validators.required],
+      precio: [this.product.price == 0 ? '' : this.product.price, Validators.required],
+      cantidad: [this.product.qty == 0 ? '' : this.product.qty, Validators.required],
     })
   }
 
-  get AddProductoFormCtrl(){
+  get AddProductoFormCtrl() {
     return this.addProductForm.controls;
   }
 
-  onSubmit(){
+  onSubmit() {
     if (this.addProductForm.invalid) {
       return;
     }
-    console.log("Agregando producto");
+    //console.log("Agregando producto");
 
     this.product = {
-        id:this.AddProductoFormCtrl.id.value,
-        codigo:this.AddProductoFormCtrl.codigo.value,	
-        nombre:this.AddProductoFormCtrl.nombre.value,
-        price:this.AddProductoFormCtrl.precio.value,
-        qty:this.AddProductoFormCtrl.cantidad.value,
+      id: this.AddProductoFormCtrl.id.value,
+      codigo: this.AddProductoFormCtrl.codigo.value,
+      nombre: this.AddProductoFormCtrl.nombre.value,
+      price: this.AddProductoFormCtrl.precio.value,
+      qty: this.AddProductoFormCtrl.cantidad.value,
     }
     console.log(this.product);
-    this.productService.addProduct(this.product).subscribe( data => {
+    this.productService.addProduct(this.product).subscribe(data => {
       console.log(data);
       this.gotoProducts();
-      
-    });
-    console.log("Producto agregado");
+    },
+      error => this.error = error.error.message
+    );
   }
 
-  gotoProducts(){
+  gotoProducts() {
     this.router.navigate(['/products']);
   }
 
