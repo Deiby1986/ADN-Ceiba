@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.co.ceiba.adn.domain.exceptions.FieldEmptyOrNullException;
+import com.co.ceiba.adn.domain.exceptions.NoStockAvailableForProduct;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -49,6 +50,8 @@ public class SalesDetail {
 			throw new FieldEmptyOrNullException("Se debe especificar una cantidad valida");
 		if(total <= 0L)
 			throw new FieldEmptyOrNullException("Se debe ingresar una cantidad valida");
+		if(qtyPurchased > product.getQty())
+			throw new NoStockAvailableForProduct("No hay stock para el producto "+product.getNombre()+((product.getQty()>0)?("(Cantidad disponible : "+product.getQty()+" )"):""));
 		
 		this.header = header;
 		this.product = product;

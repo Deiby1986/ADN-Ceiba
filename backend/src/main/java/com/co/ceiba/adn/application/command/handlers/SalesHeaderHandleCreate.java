@@ -2,6 +2,8 @@ package com.co.ceiba.adn.application.command.handlers;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Component;
 
 import com.co.ceiba.adn.application.command.bean.CommandSalesDetail;
@@ -22,22 +24,26 @@ public class SalesHeaderHandleCreate {
 		this.detailHandler = detailCreate;
 	}
 	
+	@Transactional
 	public void save(CommandSalesHeader command) {
+		List<CommandSalesDetail> details =  command.getDetails();		
 		SalesHeader headerTosave = headerFactory.create(command);
-		SalesHeader header = headerService.execute(headerTosave);
-		List<CommandSalesDetail> details =  command.getDetails();	
+		SalesHeader header = headerService.execute(headerTosave);		
 		saveDetails(details, header);
 	}
 	
-	private void saveDetails(List<CommandSalesDetail> details,SalesHeader header) {
+	private void saveDetails(List<CommandSalesDetail> details,SalesHeader header) {		
 		if(details == null || details.isEmpty())
 			return;			
 		for (int i = 0; i < details.size(); i++) {
 			CommandSalesDetail det = details.get(i);
 			det.setIdHeader(header.getId());
-		 	detailHandler.save(det);			
+		 	detailHandler.save(det);		
 		}
+		
 	}
+	
+	
 	
 	
 

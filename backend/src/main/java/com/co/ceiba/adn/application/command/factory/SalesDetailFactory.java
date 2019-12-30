@@ -20,7 +20,6 @@ public class SalesDetailFactory {
 		
 		SalesHeader header=daoHeader.findById(detail.getIdHeader()).orElse(null);
 		Product pr = daoProducto.findById(detail.getIdProduct()).orElse(null);	
-		
 		return new SalesDetail(header, pr, detail.getQtyPurchased(), detail.getTotal());
 		
 	}
