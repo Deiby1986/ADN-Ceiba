@@ -9,8 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ErrorHandler extends ResponseEntityExceptionHandler {
 	
-	public ErrorHandler() {
-		System.out.println("Manejador error");
+	public ErrorHandler() {		
 	}
 	
 	@ExceptionHandler(Exception.class)
