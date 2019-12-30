@@ -1,5 +1,10 @@
 package com.co.ceiba.adn.infraestructura.error;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Error {
     
     private String excepcionName;
@@ -12,24 +17,7 @@ public class Error {
 	}
 
 
-	public String getExcepcionName() {
-		return excepcionName;
-	}
-
-
-	public void setExcepcionName(String excepcionName) {
-		this.excepcionName = excepcionName;
-	}
-
-
-	public String getMessage() {
-		return message;
-	}
-
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
+	
 	
     
     
