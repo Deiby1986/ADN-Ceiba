@@ -21,7 +21,7 @@ pipeline {
         echo "------------>Checkout<------------"
         checkout([
             $class: 'GitSCM', 
-            branches: [[name: '*/master']], 
+            branches: [[name: '*/test-13-12']], 
             doGenerateSubmoduleConfigurations: false, 
             extensions: [], 
             gitTool: 'Git_Centos', 
