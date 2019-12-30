@@ -50,10 +50,6 @@ test {
     useJUnitPlatform()
 }
 
-jacoco {
-    toolVersion = "0.8.5"
-    reportsDir = file("$buildDir/reports/jacoco")
-}
 
 jacocoTestReport {
 	reports {
