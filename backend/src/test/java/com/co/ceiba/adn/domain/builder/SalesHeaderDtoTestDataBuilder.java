@@ -45,7 +45,7 @@ public class SalesHeaderDtoTestDataBuilder {
 	}
 	
 	public SalesHeaderDto build() {
-		return new SalesHeaderDto(id,clientName, date, total);
+		return new SalesHeaderDto(id,clientName, date, total,details);
 	}
 
 }

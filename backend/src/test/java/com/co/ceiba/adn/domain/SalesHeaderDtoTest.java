@@ -15,10 +15,8 @@ public class SalesHeaderDtoTest {
 	
 	@Test
 	public void testSalesHeaderDto() {
-		SalesHeaderDtoTestDataBuilder builder = new SalesHeaderDtoTestDataBuilder();
-		
-		SalesHeaderDto header=  builder.withName("test").withTotal(1D).withDate("01/01/2019").build();
-		
+		SalesHeaderDtoTestDataBuilder builder = new SalesHeaderDtoTestDataBuilder();		
+		SalesHeaderDto header=  builder.withName("test").withTotal(1D).withDate("01/01/2019").build();		
 		assertNotEquals(0, header.getTotal());
 	}
 	
