@@ -32,13 +32,13 @@ const routes: Routes = [
     path:'product',
     loadChildren: "./products/products-form/products-form.module#ProductsFormModule"
   },
-  {
+ /* {
     path: 'notfound', 
     loadChildren: 'app/notfound/notfound.module#NotFoundModule'
   },
   { 
     path: '**', redirectTo: '/notfound' 
-  }
+  }*/
   
 ];
 
