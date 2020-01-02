@@ -10,6 +10,7 @@ import { SalesService } from '../shared/sales.service';
 import { Salesheader } from '../shared/salesheader';
 
 
+
 @Component({
   selector: 'app-sales-form',
   templateUrl: './sales-form.component.html',
@@ -23,6 +24,7 @@ export class SalesFormComponent implements OnInit {
   private sale: Salesheader;  
   private editSale:boolean
   private error:string;
+  
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,41 +39,24 @@ export class SalesFormComponent implements OnInit {
     this.sale = this.salesService.getCurrentSale();
     
     this.orderForm = this.formBuilder.group({
-      cliente: this.sale == null? '':new FormControl({ value: this.sale.nombreCliente, disabled: true }),
+      cliente: this.sale == null? '':new FormControl({ value: this.sale.nombreCliente, disabled: true},Validators.required),
       fecha: this.sale == null?this.datePipe.transform(new Date(), "dd/MM/yyyy"):this.sale.fecha,
       total: this.sale == null?'':this.sale.total,
-      items: this.formBuilder.array([this.createItem(null)])
+      items: this.formBuilder.array([this.createItem(null)],[Validators.minLength(2)])
     });  
     
     this.prService.getProducts().subscribe((products) => { 
         this.products = products; 
-        if(this.sale!=null)
-          this.initItems(this.sale.details);
-    });
-    this.editSale = this.sale != null;
-    console.log("Editando venta : "+this.editSale);
+       
+    });  
   }
-
-  initItems(details:Salesdetail[]){
-   // let detail:any;
-    this.items = this.orderForm.get('items') as FormArray;    
-    this.items.clear();
-    details.forEach(detail=>{
-      console.log("detail");
-      console.log(detail);
-      this.items.push(this.createItem(detail));
-    }); 
-
-    this.items.at(0).get("producto").setValue("PRODUCTO PRUEBA", {onlySelf: true});
-    
-        
-  }
+ 
 
   createItem(item:Salesdetail): FormGroup {
     return this.formBuilder.group({
       producto: item == null?'':new FormControl({ value: item.product, disabled: true }),
-      cantidad: item == null?'':new FormControl({ value: item.qtyPurchased, disabled: true }),
-      precio: item == null?0:new FormControl({ value: item .price, disabled: true }, Validators.required),
+      cantidad: [item == null?'1':item.qtyPurchased, [Validators.required,Validators.min(1),Validators.pattern(/\d{1,5}$/)]],
+      precio: [item == null?0:item.price, [Validators.required]],
       total: new FormControl({ value:  item == null?null:item.total, disabled: true }, Validators.required)
     });
   }
