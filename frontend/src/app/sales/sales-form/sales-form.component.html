@@ -31,7 +31,7 @@
                                     <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                 </div>
                                 <input type="text" class="form-control" id="cliente" name="cliente"
-                                    formControlName="cliente" placeholder="Nombre del cliente" required>
+                                    formControlName="cliente" placeholder="Nombre del cliente" required >
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                                                 <!--<input formControlName="producto" placeholder="Producto"> -->
                                             </td>
                                             <td><input formControlName="cantidad" placeholder="Cantidad"
-                                                    (change)="calculate()" class="form-control" inputmode="numeric" pattern="[0-9]*" ></td>
+                                                    (change)="calculate()" class="form-control" inputmode="numeric" pattern="[0-9]*" OnlyNumber="true" ></td>
                                             <td><input formControlName="precio" placeholder="Seleccione Producto"
                                                     readonly class="form-control"></td>
                                             <td><input formControlName="total" placeholder="Seleccione Producto"

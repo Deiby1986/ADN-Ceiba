@@ -35,7 +35,7 @@
                         </div>
                         <!--Validaciones para el precio-->
                         <div *ngIf="AddProductoFormCtrl.precio.invalid && (AddProductoFormCtrl.precio.dirty || AddProductoFormCtrl.precio.touched)" class="alert alert-danger">
-                            <div *ngIf="AddProductoFormCtrl.nombre.errors.required">
+                            <div *ngIf="AddProductoFormCtrl.precio.errors.required">
                                 <b>Precio</b> es requerido
                             </div>                           
                         </div>
@@ -70,7 +70,7 @@
                                     <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                 </div>
                                 <input type="text" class="form-control" id="precio" name="precio"
-                                    formControlName="precio" placeholder="Precio del producto" required>
+                                    formControlName="precio" placeholder="Precio del producto" required OnlyNumber="true">
                             </div>
                         </div>
 
@@ -80,7 +80,7 @@
                                     <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                 </div>
                                 <input type="text" class="form-control" id="cantidad" name="cantidad"
-                                    formControlName="cantidad" placeholder="Cantidad en inventario" required>
+                                    formControlName="cantidad" placeholder="Cantidad en inventario" required OnlyNumber="true">
                             </div>
                         </div>
 
