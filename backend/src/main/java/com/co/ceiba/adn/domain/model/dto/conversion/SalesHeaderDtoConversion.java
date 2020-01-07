@@ -7,7 +7,7 @@ import com.co.ceiba.adn.domain.model.dto.SalesDetailDto;
 import com.co.ceiba.adn.domain.model.dto.SalesHeaderDto;
 import com.co.ceiba.adn.domain.model.entities.SalesHeader;
 
-public final class SalesHeaderDtoConversion {
+public class SalesHeaderDtoConversion {
 	
 	private SalesHeaderDtoConversion() {
 		

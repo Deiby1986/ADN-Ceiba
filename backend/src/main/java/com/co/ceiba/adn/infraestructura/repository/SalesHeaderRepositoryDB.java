@@ -26,7 +26,7 @@ public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 	}	
 	
 	public List<SalesHeaderDto> findAllAsDto(){		
-		return salesHeaderRepository.findAll().stream().map(header -> SalesHeaderDtoConversion.convertToDto(header)).collect(Collectors.toList());
+		return salesHeaderRepository.findAll().stream().map(SalesHeaderDtoConversion::convertToDto).collect(Collectors.toList());
 	}
 	
 
