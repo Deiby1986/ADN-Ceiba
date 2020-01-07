@@ -34,7 +34,7 @@ public class ProductDtoTestDataBuilder {
 	}
 	
 	public ProductDto build() {
-		return new ProductDto(id,codigo,nombre,this.price,qty);
+		return new ProductDto(id,codigo,nombre,price,qty);
 	}
 
 	

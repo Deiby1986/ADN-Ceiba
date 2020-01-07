@@ -27,14 +27,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-classes = App.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = App.class)
 @AutoConfigureMockMvc
 public class TestSalesHeaderCommand {
-	
+
 	@Autowired
 	private ObjectMapper objetcMapper;
-	
+
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -42,47 +41,45 @@ public class TestSalesHeaderCommand {
 	private MockMvc mockMvc;
 
 	@Before
-	public void setUp(){
+	public void setUp() {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 	}
-	
+
 	@Test
-	public void createSalesWithoutDetails() throws JsonProcessingException, Exception{
-		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetail(null).build();		
-		
-		mockMvc.perform(post("/api/sales").
-							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(salesCommand))).
-							andExpect(status().isOk())
-							.andExpect(content().string(""));
+	public void createSalesWithoutDetails() throws JsonProcessingException, Exception {
+		CommandSalesHeader salesCommand = new CommandSalesHeaderDataBuilder().withDetail(null).build();
+
+		mockMvc.perform(post("/api/sales").contentType(MediaType.APPLICATION_JSON)
+				.content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk())
+				.andExpect(content().string(""));
 	}
-	
+
 	@Test
-	public void createSalesWithDetails() throws JsonProcessingException, Exception{
+	public void createSalesWithDetails() throws JsonProcessingException, Exception {
 		CommandSalesDetailDataBuilder detailBuilder = new CommandSalesDetailDataBuilder();
-		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetails(detailBuilder.build()).build();		
-		
-		CommandProduct prCommand= new CommandProductDataBuilder().build();		
-		
-		
-		mockMvc.perform(post("/api/sales").
-							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(salesCommand))).
-							andExpect(status().isOk()).
-							andExpect(content().string(""));
+		CommandSalesHeader salesCommand = new CommandSalesHeaderDataBuilder().withDetails(detailBuilder.build())
+				.build();
+
+		//Create the product
+		CommandProduct prCommand = new CommandProductDataBuilder().withCode("SALETEST01").build();
+
+		mockMvc.perform(post("/api/products").contentType(MediaType.APPLICATION_JSON)
+				.content(objetcMapper.writeValueAsString(prCommand))).andExpect(status().isOk())
+				.andExpect(content().string(""));
+
+		//Create the sale
+		mockMvc.perform(post("/api/sales").contentType(MediaType.APPLICATION_JSON)
+				.content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk())
+				.andExpect(content().string(""));
 	}
-	
+
 	@Test
-	public void listSales() throws JsonProcessingException, Exception{
-		CommandSalesHeader salesCommand= new CommandSalesHeaderDataBuilder().withDetail(null).build();		
-		
-		mockMvc.perform(get("/api/sales").
-							contentType(MediaType.APPLICATION_JSON).
-							content(objetcMapper.writeValueAsString(salesCommand))).
-							andExpect(status().isOk()).
-							andExpect(content().json("[]"));
+	public void listSales() throws JsonProcessingException, Exception {
+		CommandSalesHeader salesCommand = new CommandSalesHeaderDataBuilder().withDetail(null).build();
+
+		mockMvc.perform(get("/api/sales").contentType(MediaType.APPLICATION_JSON)
+				.content(objetcMapper.writeValueAsString(salesCommand))).andExpect(status().isOk())
+				.andExpect(content().json("[]"));
 	}
-		
-		
 
 }

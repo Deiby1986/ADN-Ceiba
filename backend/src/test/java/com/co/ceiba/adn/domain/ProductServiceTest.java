@@ -33,7 +33,9 @@ public class ProductServiceTest {
 		Mockito.when(productRepository.findByCode(Mockito.any())).thenReturn(null);	
 		Mockito.when(productRepository.save(product)).thenReturn(product);
 		ProductService service = new ProductService(productRepository);
+		
 		Product  productSaved = service.execute(product);
+		
 		assertTrue(product.getCodigo().equals(productSaved.getCodigo()));		
 	}
 

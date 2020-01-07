@@ -2,7 +2,9 @@ package com.co.ceiba.adn.domain.builder;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
+import com.co.ceiba.adn.domain.model.entities.SalesDetail;
 import com.co.ceiba.adn.domain.model.entities.SalesHeader;
 
 public class SalesHeaderTestDataBuilder {
@@ -10,6 +12,7 @@ public class SalesHeaderTestDataBuilder {
 	private String clientName;	
 	private String date;	
 	private Double total;
+	private List<SalesDetail> details;
 	
 	public SalesHeaderTestDataBuilder() {
 		this.id = 1L;
@@ -33,8 +36,16 @@ public class SalesHeaderTestDataBuilder {
 		return this;
 	}
 	
+	public SalesHeaderTestDataBuilder withDetails(List<SalesDetail> details) {
+		this.details = details;
+		return this;
+	}
+	
 	public SalesHeader build() {
-		return new SalesHeader(clientName, date, total);
+		SalesHeader header = new SalesHeader(clientName, date, total);
+		if(details!=null)
+			header.setDetails(details);
+		return header;
 	}
 
 
