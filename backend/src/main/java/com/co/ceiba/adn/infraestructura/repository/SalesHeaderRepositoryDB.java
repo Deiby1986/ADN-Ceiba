@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.co.ceiba.adn.domain.model.dto.SalesDetailDto;
 import com.co.ceiba.adn.domain.model.dto.SalesHeaderDto;
 import com.co.ceiba.adn.domain.model.dto.conversion.SalesHeaderDtoConversion;
 import com.co.ceiba.adn.domain.model.entities.SalesHeader;
@@ -27,9 +26,7 @@ public class SalesHeaderRepositoryDB implements SalesHeaderRepository {
 	}	
 	
 	public List<SalesHeaderDto> findAllAsDto(){		
-		return salesHeaderRepository.findAll().stream().map(header -> {
-			return SalesHeaderDtoConversion.convertToDto(header);			
-		}).collect(Collectors.toList());
+		return salesHeaderRepository.findAll().stream().map(header -> SalesHeaderDtoConversion.convertToDto(header)).collect(Collectors.toList());
 	}
 	
 
